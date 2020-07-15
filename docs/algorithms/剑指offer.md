@@ -266,6 +266,7 @@ https://github.com/h2pl/SwordToOffer
 
    
 
+
     该算法的时间复杂度是多少呢？考虑最坏情况下，每次 partition 将数组分为长度为 N-1 和 1 的两部分，然后在长的一边继续寻找第 K 大，此时时间复杂度为 O(N^2 )。不过如果在开始之前将数组进行随机打乱，那么可以尽量避免最坏情况的出现。而在最好情况下，每次将数组均分为长度相同的两半，运行时间 T(N) = N + T(N/2)，时间复杂度是 O(N)。
 
 所以也就是说，本题用这个方法解的话，复杂度只需要O（n),因为第一次交换需要N/2,j接下来的交换的次数越来越少，最后加起来就是O（N）了。
@@ -304,11 +305,11 @@ https://github.com/h2pl/SwordToOffer
 
 
 ​    
-            for(int i=0;i<input.length;i++){
-                if(treeSet.size()<k){
-                    treeSet.add(input[i]);
-                }
-    
+​            for(int i=0;i<input.length;i++){
+​                if(treeSet.size()<k){
+​                    treeSet.add(input[i]);
+​                }
+​    
                 else {
     
                     if(input[i]<treeSet.last()){
@@ -565,7 +566,7 @@ LL今天心情特别好,因为他去买了一副扑克牌,发现里面居然有2
 
 
 ​    
-    }
+​    }
 
 ## 滑动窗口中的最大值
 
@@ -667,30 +668,30 @@ LL今天心情特别好,因为他去买了一副扑克牌,发现里面居然有2
 
 
 ​     
-    public class 替换空格 {
-        public static String replaceSpace(StringBuffer str) {
-            int newlen = 0;
-            for(int i = 0; i < str.length(); i++) {
-                if(str.charAt(i) == ' ') {
-                    newlen = newlen + 3;
-                }
-                else {
-                    newlen ++;
-                }
-            }
-            char []newstr = new char[newlen];
-            int j = 0;
-            for(int i = 0 ; i < str.length(); i++) {
-                if (str.charAt(i) == ' ') {
-                    newstr[j++] = '%';
-                    newstr[j++] = '2';
-                    newstr[j++] = '0';
-                }else {
-                    newstr[j++] = str.charAt(i);
-                }
-            }
-            return String.valueOf(newstr);
-        }
+​    public class 替换空格 {
+​        public static String replaceSpace(StringBuffer str) {
+​            int newlen = 0;
+​            for(int i = 0; i < str.length(); i++) {
+​                if(str.charAt(i) == ' ') {
+​                    newlen = newlen + 3;
+​                }
+​                else {
+​                    newlen ++;
+​                }
+​            }
+​            char []newstr = new char[newlen];
+​            int j = 0;
+​            for(int i = 0 ; i < str.length(); i++) {
+​                if (str.charAt(i) == ' ') {
+​                    newstr[j++] = '%';
+​                    newstr[j++] = '2';
+​                    newstr[j++] = '0';
+​                }else {
+​                    newstr[j++] = str.charAt(i);
+​                }
+​            }
+​            return String.valueOf(newstr);
+​        }
 
 
 ## 第一次只出现一次的字符
@@ -1207,30 +1208,30 @@ public static int LastRemaining_Solution(int n, int m) {
 
 
 ​    
-        void Mirror(TreeNode root) {
-            if(root == null)return;
-            Mirror(root.left);
-            Mirror(root.right);
-            if(root.left!=null || root.right!=null)
-            {
-                TreeNode temp=root.left;
-                root.left=root.right;
-                root.right=temp;
-            }
+​        void Mirror(TreeNode root) {
+​            if(root == null)return;
+​            Mirror(root.left);
+​            Mirror(root.right);
+​            if(root.left!=null || root.right!=null)
+​            {
+​                TreeNode temp=root.left;
+​                root.left=root.right;
+​                root.right=temp;
+​            }
 
 
 ​    
-        }
-        boolean isSameTree(TreeNode t1,TreeNode t2){
-            if(t1==null && t2==null)return true;
-            else if(t1!=null && t2!=null && t1.val==t2.val) {
-                boolean left = isSameTree(t1.left, t2.left);
-                boolean right = isSameTree(t1.right, t2.right);
-                return left && right;
-            }
-            else return false;
-        }
-    
+​        }
+​        boolean isSameTree(TreeNode t1,TreeNode t2){
+​            if(t1==null && t2==null)return true;
+​            else if(t1!=null && t2!=null && t1.val==t2.val) {
+​                boolean left = isSameTree(t1.left, t2.left);
+​                boolean right = isSameTree(t1.right, t2.right);
+​                return left && right;
+​            }
+​            else return false;
+​        }
+​    
         TreeNode copyTree (TreeNode root) {
             if (root == null) return null;
             TreeNode t = new TreeNode(root.val);
@@ -1529,6 +1530,7 @@ public static int LastRemaining_Solution(int n, int m) {
         }
 
  
+
 
         注意：但是当arr[left] = arr[right] = arr[min]时。三个数都相等无法确定最小值，此时只能遍历。
 

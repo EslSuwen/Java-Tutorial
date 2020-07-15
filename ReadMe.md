@@ -1,20 +1,6 @@
-本仓库为【Java工程师技术指南】力求打造最完整最实用的Java工程师学习指南！
+本仓库原为[Java工程师技术指南](https://github.com/h2pl/Java-Tutorial)力求打造最完整最实用的Java工程师学习指南！
 
-这些文章和总结都是我近几年学习Java总结和整理出来的，非常实用，对于学习Java后端的朋友来说应该是最全面最完整的技术仓库。
-我靠着这些内容进行复习，拿到了BAT等大厂的offer，这个仓库也已经帮助了很多的Java学习者，如果对你有用，希望能给个star支持我，谢谢！
-
-为了更好地讲清楚每个知识模块，我们也参考了很多网上的优质博文，力求不漏掉每一个知识点，所有参考博文都将声明转载来源，如有侵权，请联系我。
-
-点击关注[微信公众号](#微信公众号)及时获取笔主最新更新文章，并可免费领取Java工程师必备学习资源
-
-<p align="center">
-<a href="https://github.com/h2pl/Java-Tutorial" target="_blank">
-    <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS8wNjk1ODIwMzc5MjhhMGU0OWViY2UyYjVhODVmM2UwZi94bWxub3RlLzRCNjhFODVCMzA4MzQwMjJCNzBGMTBBMTRDOEVENDVDLzg4MDQ3?x-oss-process=image/format,png" width="200" height="160"/>
-</a>
-</p>
-
-
-推荐使用 https://how2playlife.com/ 在线阅读，在线阅读内容本仓库同步一致。这种方式阅读的优势在于：左侧边栏有目录，阅读体验更好。
+现 fork 修正错误和更新内容。
 
 
 ## 目录
@@ -81,9 +67,9 @@
 * [JavaIO流](docs/java/basic/16、JavaIO流.md)
 * [多线程](docs/java/basic/17、多线程.md)
 * [深入理解内部类](docs/java/basic/18、深入理解内部类.md)
-* [javac和javap](docs/java/basic/19、Java集合框架梳理.md)
-* [Java8新特性终极指南](docs/java/basic/20、javac和javap.md)
-* [Java类和包](docs/java/basic/21、Java8新特性终极指南.md)
+* [Java集合框架梳理](docs/java/basic/19、Java集合框架梳理.md)
+* [javac和javap](docs/java/basic/20、javac和javap.md)
+* [Java8新特性终极指南](docs/java/basic/21、Java8新特性终极指南.md)
 * [序列化和反序列化](docs/java/basic/22、序列化和反序列化.md)
 * [继承、封装、多态的实现原理](docs/java/basic/23、继承、封装、多态的实现原理.md)
 
@@ -212,20 +198,26 @@ todo
 ## 计算机基础
 
 ### 计算机网络
-todo
-
+* [计算机网络学习总结](docs/network/计算机网络学习总结.md)
 
 ### 操作系统
-todo
+
+[操作系统学习总结](docs/operating-system/操作系统学习总结.md)
 
 #### Linux相关
+
+[Linux内核与基础命令学习总结](docs/operating-system/Linux内核与基础命令学习总结.md)
+
+#### 编译原理
+
 todo
 
-
 ### 数据结构与算法
+
 todo
 
 #### 数据结构
+
 todo
 
 #### 算法
@@ -347,29 +339,3 @@ todo
 
 ## 待办
 springboot和springcloud
-
-## 微信公众号
-
-### Java技术江湖
-
-如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号【Java技术江湖】一位阿里 Java 工程师的技术小站，作者黄小斜，专注 Java 相关技术：SSM、SpringBoot、MySQL、分布式、中间件、集群、Linux、网络、多线程，偶尔讲点Docker、ELK，同时也分享技术干货和学习经验，致力于Java全栈开发！
-
-**Java工程师技术学习资料:** 一些Java工程师常用学习资源，关注公众号后，后台回复关键字 **“Java”** 即可免费无套路获取。
-
-**Java进阶架构师资料:** 关注公众号后回复 **”架构师“** 即可领取 Java基础、进阶、项目和架构师等免费学习资料，更有数据库、分布式、微服务等热门技术学习视频，内容丰富，兼顾原理和实践，另外也将赠送作者原创的Java学习指南、Java程序员面试指南等干货资源
-
-![我的公众号](https://img-blog.csdnimg.cn/20190805090108984.jpg)
-
-### 个人公众号：程序员黄小斜
-​
-黄小斜是 985 硕士，阿里巴巴Java工程师，在自学编程、技术求职、Java学习等方面有丰富经验和独到见解，希望帮助到更多想要从事互联网行业的程序员们。
-​
-作者专注于 JAVA 后端技术栈，热衷于分享程序员干货、学习经验、求职心得，以及自学编程和Java技术栈的相关干货。
-​
-黄小斜是一个斜杠青年，坚持学习和写作，相信终身学习的力量，希望和更多的程序员交朋友，一起进步和成长！
-
-**原创电子书:** 关注微信公众号【程序员黄小斜】后回复 **"原创电子书"** 即可领取我原创的电子书《菜鸟程序员修炼手册：从技术小白到阿里巴巴Java工程师》这份电子书总结了我2年的Java学习之路，包括学习方法、技术总结、求职经验和面试技巧等内容，已经帮助很多的程序员拿到了心仪的offer！
-
-**程序员3T技术学习资源：** 一些程序员学习技术的资源大礼包，关注公众号【程序员黄小斜】后，后台回复关键字 **“资料”** 即可免费无套路获取，包括Java、python、C++、大数据、机器学习、前端、移动端等方向的技术资料。
-
-![](https://img-blog.csdnimg.cn/20190829222750556.jpg)

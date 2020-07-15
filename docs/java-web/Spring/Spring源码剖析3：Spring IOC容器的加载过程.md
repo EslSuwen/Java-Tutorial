@@ -831,8 +831,7 @@ DefaultBeanDefinitionDocumentReader就开始做实际的解析工作了，但是
 
 # loadBeanDefinitions
 
-> BeanDefinition的解析,已经走到了DefaultBeanDefinitionDocumentR
-> eader里，这时候配置文件已经被加载，并解析成w3c的Document对象。这篇博客就接着介绍，DefaultBeanDefinitionDocumentReader和BeanDefinitionParserDelegate类，是怎么协同完成bean的解析和注册的。
+> BeanDefinition的解析,已经走到了DefaultBeanDefinitionDocumentReader里，这时候配置文件已经被加载，并解析成w3c的Document对象。这篇博客就接着介绍，DefaultBeanDefinitionDocumentReader和BeanDefinitionParserDelegate类，是怎么协同完成bean的解析和注册的。
 
 ```
         BeanDefinitionParserDelegate parent = this.delegate;
@@ -1111,7 +1110,6 @@ this.parseState.push(new BeanEntry(beanName));
         if (ele.hasAttribute(CLASS_ATTRIBUTE)) {
             className = ele.getAttribute(CLASS_ATTRIBUTE).trim();
         }
-
 ```
 
 这段是从配置中抽取出类名。接下来的长长一段，把异常处理先抛开，看看实际的业务

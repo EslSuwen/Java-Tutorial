@@ -347,7 +347,7 @@ public static void main(String[] args) {
         at java.util.ArrayList$SubList.checkForComodification(Unknown Source)
         at java.util.ArrayList$SubList.size(Unknown Source)
         at com.chenssy.test.arrayList.SubListTest.main(SubListTest.java:17)
-list1正常输出，但是list3就抛出ConcurrentModificationException异常，看过我另一篇博客的同仁肯定对这个异常非常，fail-fast？不错就是fail-fast机制，在fail-fast机制中，LZ花了很多力气来讲述这个异常，所以这里LZ就不对这个异常多讲了。我们再看size方法：
+list1正常输出，但是list3就抛出ConcurrentModificationException异常，看过我另一篇博客的同仁肯定对这个异常非常熟悉，fail-fast？不错就是fail-fast机制，在fail-fast机制中，LZ花了很多力气来讲述这个异常，所以这里LZ就不对这个异常多讲了。我们再看size方法：
 
     public int size() {
                 checkForComodification();
