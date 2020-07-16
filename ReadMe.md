@@ -1,7 +1,4 @@
-本仓库原为[Java工程师技术指南](https://github.com/h2pl/Java-Tutorial)力求打造最完整最实用的Java工程师学习指南！
-
-现 fork 修正错误和更新内容。
-
+​	本仓库原为[Java工程师技术指南](https://github.com/h2pl/Java-Tutorial),现 fork 修正错误和更新内容。
 
 ## 目录
 
@@ -17,6 +14,10 @@
     - [并发](#并发)
     - [JVM](#JVM)
     - [Java网络编程](#Java网络编程)
+- [算法](#算法)
+    -[必备算法总结](#必备算法总结)
+    -[剑指offer](#剑指offer)
+    -[todo]()
 - [计算机基础](#计算机基础)
     - [计算机网络](#计算机网络)
     - [操作系统](#操作系统)
@@ -165,6 +166,7 @@ todo
 
 ### JVM
 
+* [JVM](https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&mid=2247484721&idx=2&sn=73b2762abd8c54cdc8b6bb8b5692384b&chksm=ebd74430dca0cd262c0cd72509e8e9df71287eb74d3e3e56430934df7c60db38a78824a80a4a&token=1676899695&lang=zh_CN&scene=21#wechat_redirect)
 * [JVM总结](docs/java/jvm/JVM总结.md)
 * [深入理解JVM虚拟机1：JVM内存的结构与消失的永久代](docs/java/jvm/深入理解JVM虚拟机1：JVM内存的结构与消失的永久代.md)
 * [深入理解JVM虚拟机2：JVM垃圾回收基本原理和算法](docs/java/jvm/深入理解JVM虚拟机2：JVM垃圾回收基本原理和算法.md)
@@ -195,10 +197,23 @@ todo
 * [Java网络编程与NIO详解10：深度解读Tomcat中的NIO模型](https://github.com/h2pl/Java-Tutorial/blob/master/docs/java/network-programming/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%8ENIO%E8%AF%A6%E8%A7%A310%EF%BC%9A%E6%B7%B1%E5%BA%A6%E8%A7%A3%E8%AF%BBTomcat%E4%B8%AD%E7%9A%84NIO%E6%A8%A1%E5%9E%8B.md)
 * [Java网络编程与NIO详解11：Tomcat中的Connector源码分析（NIO）](docs/java/jvm/Java网络编程与NIO详解11：Tomcat中的Connector源码分析（NIO）.md)
 
+## 算法
+
+* [必备算法总结](https://www.zhihu.com/question/23148377/answer/907915556)
+* [剑指offer](docs/algorithms/剑指offer.md)
+
+* [动态规划](https://www.cxyxiaowu.com/6781.html)
+
+* [十大排序](https://www.zhihu.com/question/51337272/answer/572455307)
+
+  
+
 ## 计算机基础
 
 ### 计算机网络
+
 * [计算机网络学习总结](docs/network/计算机网络学习总结.md)
+* [tcp/ip必会](https://www.cxyxiaowu.com/11609.html)
 
 ### 操作系统
 
@@ -218,12 +233,14 @@ todo
 
 #### 数据结构
 
-todo
+* [数据结构总复习](https://blog.csdn.net/zl88086603/article/details/80727172)
 
 #### 算法
+
 todo
 
 ## 数据库
+
 todo
 
 ### MySQL
@@ -269,6 +286,7 @@ todo
 ### Kafka
 
 ## 大后端
+
 * [后端技术杂谈开篇：云计算，大数据与AI的故事](docs/big-backEnd/后端技术杂谈开篇：云计算，大数据与AI的故事.md)
 * [后端技术杂谈1：搜索引擎基础倒排索引](docs/big-backEnd/后端技术杂谈1：搜索引擎基础倒排索引.md)
 * [后端技术杂谈2：搜索引擎工作原理](docs/big-backEnd/后端技术杂谈2：搜索引擎工作原理.md)
@@ -322,6 +340,14 @@ todo
 ## 面试指南
 
 todo
+
+### 典例问题
+
+* [Java面试大纲](https://www.jianshu.com/p/a07d1d4004b0)
+* [校招Java后端](https://www.zhihu.com/question/403508943/answer/1311334943)
+* [常见SSM](https://zhuanlan.zhihu.com/p/140394330)
+* [MySQL](https://zhuanlan.zhihu.com/p/140876416)
+
 ### 校招指南
 todo
 
