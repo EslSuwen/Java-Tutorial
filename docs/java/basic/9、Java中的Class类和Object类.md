@@ -16,25 +16,8 @@
     * [finalize()方法](#finalize方法)
   * [CLass类和Object类的关系](#class类和object类的关系)
   * [参考文章](#参考文章)
-  * [微信公众号](#微信公众号)
-    * [Java技术江湖](#java技术江湖)
-    * [个人公众号：黄小斜](#个人公众号：黄小斜)
 
-本系列文章将整理到我在GitHub上的《Java面试指南》仓库，更多精彩内容请到我的仓库里查看
-> https://github.com/h2pl/Java-Tutorial
-
-喜欢的话麻烦点下Star哈
-
-文章首发于我的个人博客：
-> www.how2playlife.com
-
-本文是微信公众号【Java技术江湖】的《夯实Java基础系列博文》其中一篇，本文部分内容来源于网络，为了把本文主题讲得清晰透彻，也整合了很多我认为不错的技术博客内容，引用其中了一些比较好的博客文章，如有侵权，请联系作者。
-该系列博文会告诉你如何从入门到进阶，一步步地学习Java基础知识，并上手进行实战，接着了解每个Java知识点背后的实现原理，更完整地了解整个Java技术体系，形成自己的知识框架。为了更好地总结和检验你的学习成果，本系列文章也会提供每个知识点对应的面试题以及参考答案。
-
-如果对本系列文章有什么建议，或者是有什么疑问的话，也可以关注公众号【Java技术江湖】联系作者，欢迎你参与本系列博文的创作和修订。
-
-
-<!-- more -->
+    
 
 ## Java中Class类及用法
 Java程序在运行时，Java运行时系统一直对所有的对象进行所谓的运行时类型标识，即所谓的RTTI。
@@ -311,6 +294,7 @@ private static native void registerNatives();
  
 
 
+
 > 看，clode()方法又是一个被声明为native的方法，因此，我们知道了clone()方法并不是Java的原生方法，具体的实现是有C/C++完成的。clone英文翻译为"克隆"，其目的是创建并返回此对象的一个副本。
 
 > 形象点理解，这有一辆科鲁兹，你看着不错，想要个一模一样的。你调用此方法即可像变魔术一样变出一辆一模一样的科鲁兹出来。配置一样，长相一样。但从此刻起，原来的那辆科鲁兹如果进行了新的装饰，与你克隆出来的这辆科鲁兹没有任何关系了。
@@ -340,6 +324,7 @@ private static native void registerNatives();
  
 
 
+
 > 例子很简单，在main()方法中，new一个Oject对象后，想直接调用此对象的clone方法克隆一个对象，但是出现错误提示："The method clone() from the type Object is not visible"
 >  
 > why? 根据提示，第一反应是ObjectTest类中定义的Oject对象无法访问其clone()方法。回到Object类中clone()方法的定义，可以看到其被声明为protected，估计问题就在这上面了，protected修饰的属性或方法表示：在同一个包内或者不同包的子类可以访问。
@@ -367,6 +352,7 @@ private static native void registerNatives();
     }
 
  
+
 
 
 是的，因为此时的主调已经是子类的引用了。
@@ -493,6 +479,7 @@ clone方法实现的是浅拷贝，只拷贝当前对象，并且在堆中分配
  
 
 
+
 > 由此可见，Object原生的equals()方法内部调用的正是==，与==具有相同的含义。既然如此，为什么还要定义此equals()方法？
 >  
 > equals()方法的正确理解应该是：判断两个对象是否相等。那么判断对象相等的标尺又是什么？
@@ -558,6 +545,7 @@ hashCode()具有如下约定：
     }  
 
  
+
 
 
 > toString()方法相信大家都经常用到，即使没有显式调用，但当我们使用System.out.println(obj)时，其内部也是通过toString()来实现的。
@@ -669,6 +657,7 @@ hashCode()具有如下约定：
  
 
 
+
 > 且wait(long timeout, int nanos)方法定义内部实质上也是通过调用wait(long timeout)完成。而wait(long timeout)是一个native方法。因此，wait(...)方法本质上都是native方式实现。
 
 notify()/notifyAll()方法也都是native方法。
@@ -684,6 +673,7 @@ finalize方法主要与Java垃圾回收机制有关。首先我们看一下final
     protected void finalize() throws Throwable { }  
 
  
+
 
 
 > 我们发现Object类中finalize方法被定义成一个空方法，为什么要如此定义呢？finalize方法的调用时机是怎么样的呢？
@@ -726,22 +716,3 @@ https://www.jb51.net/article/125936.htm
 https://blog.csdn.net/dufufd/article/details/80537638
 https://blog.csdn.net/farsight1/article/details/80664104
 https://blog.csdn.net/xiaomingdetianxia/article/details/77429180
-
-## 微信公众号
-
-### Java技术江湖
-
-如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号【Java技术江湖】一位阿里 Java 工程师的技术小站，作者黄小斜，专注 Java 相关技术：SSM、SpringBoot、MySQL、分布式、中间件、集群、Linux、网络、多线程，偶尔讲点Docker、ELK，同时也分享技术干货和学习经验，致力于Java全栈开发！
-
-**Java工程师必备学习资源:** 一些Java工程师常用学习资源，关注公众号后，后台回复关键字 **“Java”** 即可免费无套路获取。
-
-![我的公众号](https://img-blog.csdnimg.cn/20190805090108984.jpg)
-
-### 个人公众号：黄小斜
-
-作者是 985 硕士，蚂蚁金服 JAVA 工程师，专注于 JAVA 后端技术栈：SpringBoot、MySQL、分布式、中间件、微服务，同时也懂点投资理财，偶尔讲点算法和计算机理论基础，坚持学习和写作，相信终身学习的力量！
-
-**程序员3T技术学习资源：** 一些程序员学习技术的资源大礼包，关注公众号后，后台回复关键字 **“资料”** 即可免费无套路获取。 
-
-![](https://img-blog.csdnimg.cn/20190829222750556.jpg)
-

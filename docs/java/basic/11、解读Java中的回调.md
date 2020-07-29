@@ -7,36 +7,9 @@
   * [实例二：由浅入深](#实例二：由浅入深)
   * [实例三：Tom做题](#实例三：tom做题)
   * [参考文章](#参考文章)
-  * [微信公众号](#微信公众号)
-    * [Java技术江湖](#java技术江湖)
-    * [个人公众号：黄小斜](#个人公众号：黄小斜)
 
+    
 
-
----
-title: 夯实Java基础系列11：深入理解Java中的回调机制
-date: 2019-9-11 15:56:26 # 文章生成时间，一般不改
-categories:
-    - Java技术江湖
-    - Java基础
-tags:
-    - 回调机制
----
-
-本系列文章将整理到我在GitHub上的《Java面试指南》仓库，更多精彩内容请到我的仓库里查看
-> https://github.com/h2pl/Java-Tutorial
-
-喜欢的话麻烦点下Star哈
-
-文章首发于我的个人博客：
-> www.how2playlife.com
-
-本文是微信公众号【Java技术江湖】的《夯实Java基础系列博文》其中一篇，本文部分内容来源于网络，为了把本文主题讲得清晰透彻，也整合了很多我认为不错的技术博客内容，引用其中了一些比较好的博客文章，如有侵权，请联系作者。
-该系列博文会告诉你如何从入门到进阶，一步步地学习Java基础知识，并上手进行实战，接着了解每个Java知识点背后的实现原理，更完整地了解整个Java技术体系，形成自己的知识框架。为了更好地总结和检验你的学习成果，本系列文章也会提供每个知识点对应的面试题以及参考答案。
-
-如果对本系列文章有什么建议，或者是有什么疑问的话，也可以关注公众号【Java技术江湖】联系作者，欢迎你参与本系列博文的创作和修订。
-
-<!-- more -->
 ## 模块间的调用
 
 本部分摘自https://www.cnblogs.com/xrq730/p/6424471.html
@@ -67,7 +40,7 @@ tags:
 2、回调的用途
 回调一般用于层间协作，上层将本层函数安装在下层，这个函数就是回调，而下层在一定条件下触发回调。例如作为一个驱动，是一个底层，他在收到一个数据时，除了完成本层的处理工作外，还将进行回调，将这个数据交给上层应用层来做进一步处理，这在分层的数据通信中很普遍。
 
-    
+
 ## 多线程中的“回调”
 
 Java多线程中可以通过callable和future或futuretask结合来获取线程执行后的返回值。实现方法是通过get方法来调用callable的call方法获取返回值。
@@ -90,7 +63,7 @@ Java多线程中可以通过callable和future或futuretask结合来获取线程�
             System.out.println(future.get());
             //需要手动关闭，不然线程池的线程会继续执行。
             executor.shutdown();
-
+    
         //使用futuretask同时作为线程执行单元和数据请求单元。
         FutureTask<Integer> futureTask = new FutureTask(new Callable<Integer>() {
             @Override
@@ -112,7 +85,7 @@ Java多线程中可以通过callable和future或futuretask结合来获取线程�
             }
         };
         FutureTask futureTask = new FutureTask(callable);
-
+    
     }
     }
 
@@ -334,7 +307,7 @@ callBottomService start -->  callBottomService.bottom() execute -->  BottomServi
           System.out.print("小明和小李一起去吃大龙虾");
        }
     }
-    
+
 不过上面已经说过了这个不是回调函数，所以不能这样子，正确的方式如下
 
     public class XiaoLi{//小李
@@ -345,7 +318,7 @@ callBottomService start -->  callBottomService.bottom() execute -->  BottomServi
         xm.eat();//洗漱完后，一起去吃饭
        }
     }
-    
+
 这样子就可以实现washFace()同时也能实现eat()。小李洗漱完后，再通知小明一起去吃饭，这就是回调。
 
 二、Java的回调-中
@@ -392,7 +365,7 @@ EatRice接口：
         xm.eatFood();
        }
     }
-    
+
 测试结果：
 
 
@@ -433,10 +406,11 @@ EatRice接口：
         public interface CallBack {
             void tellAnswer(int res);
         }
-        
-        
+
+
+​        
 数学老师类
-        
+​        
         //老师类实例化回调接口，即学生写完题目之后通过老师的提供的方法进行回调。
         //那么学生如何调用到老师的方法呢，只要在学生类的方法中传入老师的引用即可。
         //而老师需要指定学生答题，所以也要传入学生的实例。
@@ -470,7 +444,7 @@ EatRice接口：
             System.out.println("the answer is " + res);
         }
     }
-    
+
 学生接口
 
         //学生的接口，解决问题的方法中要传入老师的引用，否则无法完成对具体实例的回调。
@@ -496,7 +470,7 @@ EatRice接口：
                 e.printStackTrace();
             }
         }
-        
+
 测试类
 
     public class Test {
@@ -513,7 +487,7 @@ EatRice接口：
     //        the answer is 111
         }
     }
-    
+
 
 
 ## 参考文章
@@ -523,21 +497,3 @@ https://blog.csdn.net/xiaanming/article/details/8703708/
 https://www.cnblogs.com/prayjourney/p/9667835.html
 https://blog.csdn.net/qq_25652949/article/details/86572948
 https://my.oschina.net/u/3703858/blog/1798627
-
-## 微信公众号
-
-### Java技术江湖
-
-如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号【Java技术江湖】一位阿里 Java 工程师的技术小站，作者黄小斜，专注 Java 相关技术：SSM、SpringBoot、MySQL、分布式、中间件、集群、Linux、网络、多线程，偶尔讲点Docker、ELK，同时也分享技术干货和学习经验，致力于Java全栈开发！
-
-**Java工程师必备学习资源:** 一些Java工程师常用学习资源，关注公众号后，后台回复关键字 **“Java”** 即可免费无套路获取。
-
-![我的公众号](https://img-blog.csdnimg.cn/20190805090108984.jpg)
-
-### 个人公众号：黄小斜
-
-作者是 985 硕士，蚂蚁金服 JAVA 工程师，专注于 JAVA 后端技术栈：SpringBoot、MySQL、分布式、中间件、微服务，同时也懂点投资理财，偶尔讲点算法和计算机理论基础，坚持学习和写作，相信终身学习的力量！
-
-**程序员3T技术学习资源：** 一些程序员学习技术的资源大礼包，关注公众号后，后台回复关键字 **“资料”** 即可免费无套路获取。 
-
-![](https://img-blog.csdnimg.cn/20190829222750556.jpg)

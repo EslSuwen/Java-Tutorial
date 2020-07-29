@@ -21,9 +21,6 @@
   * [分库分表](#分库分表)
   * [主从复制，读写分离](#主从复制，读写分离)
   * [分布式数据库](#分布式数据库)
-  * [微信公众号](#微信公众号)
-    * [Java技术江湖](#java技术江湖)
-    * [个人公众号：黄小斜](#个人公众号：黄小斜)
 
 
 ---
@@ -61,6 +58,20 @@ Mysql是关系数据库。
 
 ## 存储过程与视图
 存储过程是对sql语句进行预编译并且以文件形式包装为一个可以快速执行的程序。但是缺点是不易修改，稍微改动语句就需要重新开发储存过程，优点是执行效率快。视图就是对其他一个或多个表进行重新包装，是一个外观模式，对视图数据的改动也会影响到数据报本身。
+
+## 内模式，模式，外模式
+
+模式又称概念模式或逻辑模式，对应于概念级。它是由数据库设计者综合所有用户的数据，按照统一的观点构造的全局逻辑结构，是对数据库中全部数据的逻辑结构和特征的总体描述，是所有用户的公共数据视图(全局视图)。
+
+外模式又称子模式，对应于用户级。它是某个或某几个用户所看到的数据库的数据视图，是与某一应用有关的数据的逻辑表示。外模式是从模式导出的一个子集，包含模式中允许特定用户使用的那部分数据。
+
+内模式又称存储模式，对应于物理级，它是数据库中全体数据的内部表示或底层描述，是数据库最低一级的逻辑描述，它描述了数据在存储介质上的存储方式的物理结构，对应着实际存储在外存储介质上的数据库。内模式由内模式描述语言来描述、定义，它是数据库的存储观。
+
+##### 拓展资料
+
+用户应用程序根据外模式进行数据操作，通过外模式一模式映射，定义和建立某个外模式与模式间的对应关系，将外模式与模式联系起来，当模式发生改变时，只要改变其映射，就可以使外模式保持不变，对应的应用程序也可保持不变；
+
+另一方面，通过模式一内模式映射，定义建立数据的逻辑结构(模式)与存储结构(内模式)间的对应关系，当数据的存储结构发生变化时，只需改变模式一内模式映射，就能保持模式不变，因此应用程序也可以保持不变。
 
 ## 事务与隔离级别   
 事务的四个性质：原子性，一致性，持久性，隔离性。
@@ -213,15 +224,15 @@ mysql慢查询日志可以在mysql的,my.cnf文件中配置开启，然后执行
 
 ​    
 ​    
-    还是没用到索引，因为不符合最左前缀匹配。查询需要3.5秒左右
+​    还是没用到索引，因为不符合最左前缀匹配。查询需要3.5秒左右
 
 
 ​    
 ​    
-    最后修改一下sql语句
-    
-    EXPLAIN SELECT * FROM vote_record WHERE id > 0 AND vote_num > 1000;
-    
+​    最后修改一下sql语句
+​    
+​    EXPLAIN SELECT * FROM vote_record WHERE id > 0 AND vote_num > 1000;
+​    
     id	select_type	table	partitions	type	possible_keys	key	key_len	ref	rows	filtered	Extra
     
     1	SIMPLE	vote_record	\N	range	PRIMARY,votenum,vote	PRIMARY	4	\N	498253	50.00	Using where
@@ -229,24 +240,24 @@ mysql慢查询日志可以在mysql的,my.cnf文件中配置开启，然后执行
 
 ​    
 ​    
-    用到了索引，但是只用到了主键索引。再修改一次
+​    用到了索引，但是只用到了主键索引。再修改一次
 
 
 ​    
 ​    
-    EXPLAIN SELECT * FROM vote_record WHERE id > 0 AND vote_num = 1000;
+​    EXPLAIN SELECT * FROM vote_record WHERE id > 0 AND vote_num = 1000;
 
 
 ​    
 ​    
-    id	select_type	table	partitions	type	possible_keys	key	key_len	ref	rows	filtered	Extra
-    
-    1	SIMPLE	vote_record	\N	index_merge	PRIMARY,votenum,vote	votenum,PRIMARY	8,4	\N	51	100.00	Using intersect(votenum,PRIMARY); Using where
+​    id	select_type	table	partitions	type	possible_keys	key	key_len	ref	rows	filtered	Extra
+​    
+​    1	SIMPLE	vote_record	\N	index_merge	PRIMARY,votenum,vote	votenum,PRIMARY	8,4	\N	51	100.00	Using intersect(votenum,PRIMARY); Using where
 
 
 ​    
 ​    
-    用到了两个索引，votenum,PRIMARY。
+​    用到了两个索引，votenum,PRIMARY。
 
 ## mysql的binlog,redo log和undo log。
 

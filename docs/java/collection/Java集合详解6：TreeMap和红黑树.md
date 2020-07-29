@@ -11,25 +11,8 @@
         * [删除节点](#删除节点)
     * [3.总结](#3总结)
   * [参考文章](#参考文章)
-  * [微信公众号](#微信公众号)
-    * [Java技术江湖](#java技术江湖)
-    * [个人公众号：黄小斜](#个人公众号：黄小斜)
 
-本文参考多篇优质技术博客，参考文章请在文末查看
-
-《Java集合详解系列》是我在完成夯实Java基础篇的系列博客后准备开始整理的新系列文章。
-为了更好地诠释知识点，形成体系文章，本系列文章整理了很多优质的博客内容，如有侵权请联系我，一定删除。
-
-这些文章将整理到我在GitHub上的《Java面试指南》仓库，更多精彩内容请到我的仓库里查看
-
-如果对本系列文章有什么建议，或者是有什么疑问的话，也可以关注公众号【Java技术江湖】联系作者，欢迎你参与本系列博文的创作和修订。
-> https://github.com/h2pl/Java-Tutorial
-
-喜欢的话麻烦点下Star、fork哈
-
-本系列文章将整理于我的个人博客：
-
-> www.how2playlife.com
+    
 
 ## 什么是红黑树
 
@@ -131,9 +114,9 @@
 
 ![](https://upload-images.jianshu.io/upload_images/4761309-be4bb2dee4bffd10.png?imageMogr2/auto-orient/strip|imageView2/2/w/870/format/webp)
 
-    
+​    
 
-    
+​    
 
 *   Case 2:[先左旋变成Case1中的情况，再右旋，最后改变颜色(根节点必须为黑色，其两个子节点为红色，叔节点不用改变)],如下图所示，注意省略黑哨兵节点
 
@@ -144,7 +127,7 @@
 ![](https://upload-images.jianshu.io/upload_images/4761309-7eed01cd63266976.png?imageMogr2/auto-orient/strip|imageView2/2/w/751/format/webp)
 
 
-    
+​    
 
 *   Case 3:[先左旋，最后改变颜色(根节点必须为黑色，其两个子节点为红色，叔节点不用改变)],如下图所示，注意省略黑哨兵节点
 
@@ -154,10 +137,10 @@
 
 ![](https://upload-images.jianshu.io/upload_images/4761309-2885dd45740eb113.png?imageMogr2/auto-orient/strip|imageView2/2/w/831/format/webp)
 
-    
+​    
 
 
-    
+​    
 
 *   Case 4:[先右旋变成Case 3的情况，再左旋，最后改变颜色(根节点必须为黑色，其两个子节点为红色，叔节点不用改变)],如下图所示，注意省略黑哨兵节点
 
@@ -167,10 +150,10 @@
 
 ![](https://upload-images.jianshu.io/upload_images/4761309-db86cb65433a632e.png?imageMogr2/auto-orient/strip|imageView2/2/w/754/format/webp)
 
-    
+​    
 
 
-    
+​    
 
 以上就是红黑树新增节点所有可能的操作，下面会介绍红黑树中的删除操作
 
@@ -242,7 +225,7 @@
 
 ![](https://upload-images.jianshu.io/upload_images/4761309-75984ffc3773a040.png?imageMogr2/auto-orient/strip|imageView2/2/w/562/format/webp)
 
-    
+​    
 
 
 

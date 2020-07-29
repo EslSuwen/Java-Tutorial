@@ -9,38 +9,8 @@
   * [collections和Arrays工具类](#collections和arrays工具类)
   * [comparable和comparator](#comparable和comparator)
   * [treemap和treeset](#treemap和treeset)
-  * [微信公众号](#微信公众号)
-    * [Java技术江湖](#java技术江湖)
-    * [个人公众号：黄小斜](#个人公众号：黄小斜)
 
-
----
-title: Java集合框架学习总结
-date: 2018-07-08 22:03:44
-tags:
-	- Java集合
-categories:
-	- 后端
-	- 技术总结
----
-
-
-
-这篇总结是基于之前博客内容的一个整理和回顾。
-
-
-
-这里先简单地总结一下，更多详细内容请参考我的专栏：深入浅出Java核心技术
-
-https://blog.csdn.net/column/details/21930.html
-
-里面有包括Java集合类在内的众多Java核心技术系列文章。
-
-
-以下总结不保证全对，如有错误，还望能够指出。谢谢
-<!-- more -->
-
-
+    
 
 ## Colletion，iterator，comparable
 

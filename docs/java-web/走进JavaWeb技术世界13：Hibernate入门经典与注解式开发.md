@@ -6,30 +6,8 @@
   * [相关类](#相关类)
   * [扩展](#扩展)
   * [参考文章](#参考文章)
-  * [微信公众号](#微信公众号)
-    * [个人公众号：程序员黄小斜](#个人公众号：程序员黄小斜)
-    * [技术公众号：Java技术江湖](#技术公众号：java技术江湖)
 
-
-本文转载自互联网，侵删
-本系列文章将整理到我在GitHub上的《Java面试指南》仓库，更多精彩内容请到我的仓库里查看
-> https://github.com/h2pl/Java-Tutorial
-
-喜欢的话麻烦点下Star哈
-
-本系列文章将同步到我的个人博客：
-> www.how2playlife.com
-
-更多Java技术文章将陆续在微信公众号【Java技术江湖】更新，敬请关注。
-
-本文是《走进JavaWeb技术世界》系列博文的其中一篇，本文部分内容来源于网络，为了把本文主题讲得清晰透彻，也整合了很多我认为不错的技术博客内容，引用其中了一些比较好的博客文章，如有侵权，请联系作者。
-
-该系列博文会告诉你如何从入门到进阶，从servlet到框架，从ssm再到SpringBoot，一步步地学习JavaWeb基础知识，并上手进行实战，接着了解JavaWeb项目中经常要使用的技术和组件，包括日志组件、Maven、Junit，等等内容，以便让你更完整地了解整个JavaWeb技术体系，形成自己的知识框架。为了更好地总结和检验你的学习成果，本系列文章也会提供每个知识点对应的面试题以及参考答案。
-
-如果对本系列文章有什么建议，或者是有什么疑问的话，也可以关注公众号【Java技术江湖】联系作者，欢迎你参与本系列博文的创作和修订。
-
-**文末赠送8000G的Java架构师学习资料，需要的朋友可以到文末了解领取方式，资料包括Java基础、进阶、项目和架构师等免费学习资料，更有数据库、分布式、微服务等热门技术学习视频，内容丰富，兼顾原理和实践，另外也将赠送作者原创的Java学习指南、Java程序员面试指南等干货资源）**
-<!-- more -->
+    
 
 ## 前言
 
@@ -96,7 +74,7 @@ Hibernate是一种ORM框架，全称为 Object_Relative DateBase-Mapping，在Ja
     
         }
     }
-    
+
 其实使用DbUtils时，DAO层中的代码编写是很有规律的。
 
 当插入数据的时候，就将JavaBean对象拆分，拼装成SQL语句
@@ -145,7 +123,7 @@ hibernate3.jar核心 + required 必须引入的(6个) + jpa 目录 + 数据库�
 
 我们是不知道该XML是怎么写的，可以搜索一下Hibernate文件夹中后缀为.hbm.xml。看看它们是怎么写的。然后复制一份过来
 
-    
+
     <?xml version="1.0"?>
     <!DOCTYPE hibernate-mapping PUBLIC 
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
@@ -167,13 +145,15 @@ hibernate3.jar核心 + required 必须引入的(6个) + jpa 目录 + 数据库�
             <id name="id">
                 <generator class="native"/>
             </id>
-    
-            
+
+
+​            
                 <key column="a_id"/>
                 <list-index column="idx"/>
                 <one-to-many class="B"/>
-            
-    
+
+
+​    
         </class>
     
         <class name="B" lazy="true" table="bbb">
@@ -183,7 +163,7 @@ hibernate3.jar核心 + required 必须引入的(6个) + jpa 目录 + 数据库�
         </class>
     
     </hibernate-mapping>
-    
+
 在上面的模板上修改～下面会具体讲解这个配置文件!
 
     <!--在domain包下-->
@@ -212,7 +192,7 @@ hibernate3.jar核心 + required 必须引入的(6个) + jpa 目录 + 数据库�
 
 它长得这个样子：
 
-    
+
     <?xml version='1.0' encoding='utf-8'?>
     <!DOCTYPE hibernate-configuration PUBLIC
             "-//Hibernate/Hibernate Configuration DTD//EN"
@@ -227,7 +207,7 @@ hibernate3.jar核心 + required 必须引入的(6个) + jpa 目录 + 数据库�
             <!-- <property name="hbm2ddl.auto">update</property> -->
         </session-factory>
     </hibernate-configuration>
-    
+
 通过上面的模板进行修改，后面会有对该配置文件进行讲解！
 
 
@@ -267,7 +247,7 @@ hibernate3.jar核心 + required 必须引入的(6个) + jpa 目录 + 数据库�
     import org.hibernate.Transaction;
     import org.hibernate.cfg.Configuration;
     import org.hibernate.classic.Session;
-
+    
     /**
      * Created by ozc on 2017/5/6.
      */
@@ -313,44 +293,44 @@ hibernate3.jar核心 + required 必须引入的(6个) + jpa 目录 + 数据库�
 
 
     Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'zhongfucheng.user' does
-    
+
 执行完程序后，Hibernate就为我们创建对应的表，并把数据存进了数据库了
 
 我们看看快速入门案例的代码用到了什么对象吧，然后一个一个讲解
 
 
     public static void main(String[] args) {
-
+    
         //创建对象
         User user = new User();
         user.setPassword("123");
         user.setCellphone("122222");
         user.setUsername("nihao");
-
+    
         //获取加载配置管理类
         Configuration configuration = new Configuration();
-
+    
         //不给参数就默认加载hibernate.cfg.xml文件，
         configuration.configure();
-
+    
         //创建Session工厂对象
         SessionFactory factory = configuration.buildSessionFactory();
-
+    
         //得到Session对象
         Session session = factory.openSession();
-
+    
         //使用Hibernate操作数据库，都要开启事务,得到事务对象
         Transaction transaction = session.getTransaction();
-
+    
         //开启事务
         transaction.begin();
-
+    
         //把对象添加到数据库中
         session.save(user);
-
+    
         //提交事务
         transaction.commit();
-
+    
         //关闭Session
         session.close();
     }
@@ -443,7 +423,7 @@ HQL是面向对象的查询语言，可以用来查询全部的数据！
 
 
         Query query = session.createQuery("FROM User");
-
+    
         List list = query.list();
         System.out.println(list);
 
@@ -451,10 +431,10 @@ HQL是面向对象的查询语言，可以用来查询全部的数据！
 
 
         Query query = session.createQuery("FROM User WHERE id=?");
-
+    
         //这里的？号是从0开始的，并不像JDBC从1开始的！
         query.setParameter(0, user.getId());
-
+    
         List list = query.list();
         System.out.println(list);
 
@@ -471,10 +451,10 @@ QBC查询: query by criteria 完全面向对象的查询
 
         //创建关于user对象的criteria对象
         Criteria criteria = session.createCriteria(User.class);
-
+    
         //添加条件
         criteria.add(Restrictions.eq("id", 1));
-
+    
         //查询全部数据
         List list = criteria.list();
         System.out.println(list);
@@ -491,9 +471,9 @@ QBC查询: query by criteria 完全面向对象的查询
 
         //将所有的记录封装成User对象存进List集合中
         SQLQuery sqlQuery = session.createSQLQuery("SELECT * FROM user").addEntity(User.class);
-
+    
         List list = sqlQuery.list();
-
+    
         System.out.println(list);
 
 beginTransaction方法
@@ -513,21 +493,21 @@ PO类注解配置
     @Entity // 定义了一个实体
     @Table(name="t_book",catalog="hibernateTest")
     public class Book {
-
+    
     @Id // 这表示一个主键
     // @GeneratedValue 相当于native主键生成策略
     @GeneratedValue(strategy=GenerationType.IDENTITY) // 相当于identity主键生成策略
     private Integer id; // 主键
-
+    
     @Column(name="c_name", length=30, nullable=true)
     private String name;
-
+    
     @Temporal(TemporalType.TIMESTAMP) // 是用来定义日期类型
     private Date publicationDate; // 出版日期
-
+    
     @Type(type="double") // 允许你去指定Hibernate里面的一些类型
     private Double price; // 价格，如果没有添加注解，也会自动的生成在表中
-
+    
     public Integer getId() {
         return id;
     }
@@ -559,16 +539,16 @@ PO类注解配置
 
     @Entity：声明一个实体。
     @Table：来描述类与表之间的对应关系。
-
+    
     @Entity // 定义了一个实体
     @Table(name="t_book",catalog="hibernateTest")
     public class Book {
         ......
     }
-
+    
     @id：声明一个主键。
     @GeneratedValue：用它来声明一个主键生成策略。默认情况是native主键生成策略。可以选择的主键生成策略有：AUTO、IDENTITY、SEQUENCE
-
+    
     @Id // 这表示一个主键
     // @GeneratedValue 相当于native主键生成策略
     @GeneratedValue(strategy=GenerationType.IDENTITY) // 相当于identity主键生成策略
@@ -736,8 +716,9 @@ Hibernate关联映射——一对多（多对一）
         }
     
         }
-    
-    
+
+
+​    
         订单(Order)类
         
         // 订单 ---- 多的一方
@@ -1045,39 +1026,4 @@ Hibernate关联映射——多对多
 
 <https://www.runoob.com/>
 
-https://blog.csdn.net/android_hl/article/details/53228348
-
-## 微信公众号
-
-### 个人公众号：程序员黄小斜
-
-​
-黄小斜是 985 硕士，阿里巴巴Java工程师，在自学编程、技术求职、Java学习等方面有丰富经验和独到见解，希望帮助到更多想要从事互联网行业的程序员们。
-​
-作者专注于 JAVA 后端技术栈，热衷于分享程序员干货、学习经验、求职心得，以及自学编程和Java技术栈的相关干货。
-​
-黄小斜是一个斜杠青年，坚持学习和写作，相信终身学习的力量，希望和更多的程序员交朋友，一起进步和成长！
-
-**原创电子书:**
-关注微信公众号【程序员黄小斜】后回复【原创电子书】即可领取我原创的电子书《菜鸟程序员修炼手册：从技术小白到阿里巴巴Java工程师》这份电子书总结了我2年的Java学习之路，包括学习方法、技术总结、求职经验和面试技巧等内容，已经帮助很多的程序员拿到了心仪的offer！
-
-**程序员3T技术学习资源：** 一些程序员学习技术的资源大礼包，关注公众号后，后台回复关键字 **“资料”** 即可免费无套路获取，包括Java、python、C++、大数据、机器学习、前端、移动端等方向的技术资料。
-
-
-![](https://img-blog.csdnimg.cn/20190829222750556.jpg)
-
-
-### 技术公众号：Java技术江湖
-
-如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的微信公众号【Java技术江湖】
-
-这是一位阿里 Java 工程师的技术小站。作者黄小斜，专注 Java 相关技术：SSM、SpringBoot、MySQL、分布式、中间件、集群、Linux、网络、多线程，偶尔讲点Docker、ELK，同时也分享技术干货和学习经验，致力于Java全栈开发！
-
-
-**Java工程师必备学习资源:** 
-关注公众号后回复”Java“即可领取 Java基础、进阶、项目和架构师等免费学习资料，更有数据库、分布式、微服务等热门技术学习视频，内容丰富，兼顾原理和实践，另外也将赠送作者原创的Java学习指南、Java程序员面试指南等干货资源
-
-
-![我的公众号](https://img-blog.csdnimg.cn/20190805090108984.jpg)
-
-​                     
+https://blog.csdn.net/android_hl/article/details/53228348                     

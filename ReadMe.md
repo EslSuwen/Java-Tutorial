@@ -1,8 +1,8 @@
-	本仓库原为[Java工程师技术指南](https://github.com/h2pl/Java-Tutorial),现 fork 修正错误和更新内容。
+本仓库原为 [Java工程师技术指南](https://github.com/h2pl/Java-Tutorial),现 fork 修正错误和更新内容。
 
 ## 目录
 
-- [Java基础](#Java基础)
+- [Java基础](#Java基础)	
     - [基础知识](#基础知识)
     - [容器](#容器)
     - [设计模式](#设计模式)
@@ -15,9 +15,9 @@
     - [JVM](#JVM)
     - [Java网络编程](#Java网络编程)
 - [算法](#算法)
-    -[必备算法总结](#必备算法总结)
-    -[剑指offer](#剑指offer)
-    -[todo]()
+    - [必备算法总结](#必备算法总结)
+    - [剑指offer](#剑指offer)
+    - [todo]()
 - [计算机基础](#计算机基础)
     - [计算机网络](#计算机网络)
     - [操作系统](#操作系统)
@@ -43,8 +43,6 @@
 - [资料](#资料)
     - [书单](#书单)
 - [待办](#待办)
-- [说明](#说明)
-- [微信公众号](#微信公众号)
 
 ## Java基础
 
@@ -128,12 +126,12 @@
 
 ### SpringMVC
 
-* [SpringMVC源码分析1：SpringMVC概述](docs/java-web/Spring/SSM/SpringMVC源码分析1：SpringMVC概述.md)
-* [SpringMVC源码分析2：SpringMVC设计理念与DispatcherServlet](docs/java-web/Spring/SSM/SpringMVC源码分析2：SpringMVC设计理念与DispatcherServlet.md)
-* [SpringMVC源码分析3：DispatcherServlet的初始化与请求转发 ](docs/java-web/Spring/SSM/SpringMVC源码分析3：DispatcherServlet的初始化与请求转发.md)
-* [SpringMVC源码分析4：DispatcherServlet如何找到正确的Controller ](docs/java-web/Spring/SSM/SpringMVC源码分析4：DispatcherServlet如何找到正确的Controller.md)
-* [SpringMVC源码剖析5：消息转换器HttpMessageConverter与@ResponseBody注解](docs/java-web/Spring/SSM/SpringMVC源码剖析5：消息转换器HttpMessageConverter与@ResponseBody注解.md)
-* [SpringMVC源码分析6：SpringMVC的视图解析原理 ](docs/java-web/Spring/SSM/SpringMVC源码分析6：SpringMVC的视图解析原理.md)
+* [SpringMVC源码分析1：SpringMVC概述](docs/java-web/SSM/SpringMVC源码分析1：SpringMVC概述.md)
+* [SpringMVC源码分析2：SpringMVC设计理念与DispatcherServlet](docs/java-web/SSM/SpringMVC源码分析2：SpringMVC设计理念与DispatcherServlet.md)
+* [SpringMVC源码分析3：DispatcherServlet的初始化与请求转发 ](docs/java-web/SSM/SpringMVC源码分析3：DispatcherServlet的初始化与请求转发.md)
+* [SpringMVC源码分析4：DispatcherServlet如何找到正确的Controller ](docs/java-web/SSM/SpringMVC源码分析4：DispatcherServlet如何找到正确的Controller.md)
+* [SpringMVC源码剖析5：消息转换器HttpMessageConverter与@ResponseBody注解](docs/java-web/SSM/SpringMVC源码剖析5：消息转换器HttpMessageConverter与@ResponseBody注解.md)
+* [SpringMVC源码分析6：SpringMVC的视图解析原理](docs/java-web/SSM/SpringMVC源码分析1：SpringMVC概述.md) 
 
 ### SpringBoot
 
@@ -185,17 +183,17 @@ todo
 
 ### Java网络编程
 
-* [Java网络编程和NIO详解1：JAVA 中原生的 socket 通信机制](docs/java/jvm/Java网络编程和NIO详解1：JAVA%20中原生的%20socket%20通信机制.md)
-* [Java网络编程与NIO详解2：JAVA NIO 一步步构建IO多路复用的请求模型](docs/java/jvm/Java网络编程与NIO详解2：JAVA%20NIO%20一步步构建IO多路复用的请求模型.md) 
-* [Java网络编程和NIO详解3：IO模型与Java网络编程模型](docs/java/jvm/Java网络编程和NIO详解3：IO模型与Java网络编程模型.md) 
-* [Java网络编程与NIO详解4：浅析NIO包中的Buffer、Channel 和 Selector](https://github.com/h2pl/Java-Tutorial/blob/master/docs/java/network-programming/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%8ENIO%E8%AF%A6%E8%A7%A34%EF%BC%9A%E6%B5%85%E6%9E%90NIO%E5%8C%85%E4%B8%AD%E7%9A%84Buffer%E3%80%81Channel%20%E5%92%8C%20Selector.md) 
-* [Java网络编程和NIO详解5：Java 非阻塞 IO 和异步 IO](https://github.com/h2pl/Java-Tutorial/blob/master/docs/java/network-programming/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%92%8CNIO%E8%AF%A6%E8%A7%A35%EF%BC%9AJava%20%E9%9D%9E%E9%98%BB%E5%A1%9E%20IO%20%E5%92%8C%E5%BC%82%E6%AD%A5%20IO.md)
-* [Java网络编程和NIO详解6：Linux epoll实现原理详解](docs/java/jvm/Java网络编程和NIO详解6：Linux%20epoll实现原理详解.md) 
-* [Java网络编程和NIO详解7：浅谈 Linux 中NIO Selector 的实现原理](Java网络编程和NIO详解7：浅谈%20Linux%20中NIO%20Selector%20的实现原理.md)
-* [Java网络编程与NIO详解8：浅析mmap和Direct Buffer](https://github.com/h2pl/Java-Tutorial/blob/master/docs/java/network-programming/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%8ENIO%E8%AF%A6%E8%A7%A38%EF%BC%9A%E6%B5%85%E6%9E%90mmap%E5%92%8CDirect%20Buffer.md)
-* [Java网络编程和NIO详解9：基于NIO的网络编程框架Netty](docs/java/jvm/Java网络编程和NIO详解9：基于NIO的网络编程框架Netty.md)
-* [Java网络编程与NIO详解10：深度解读Tomcat中的NIO模型](https://github.com/h2pl/Java-Tutorial/blob/master/docs/java/network-programming/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B8%8ENIO%E8%AF%A6%E8%A7%A310%EF%BC%9A%E6%B7%B1%E5%BA%A6%E8%A7%A3%E8%AF%BBTomcat%E4%B8%AD%E7%9A%84NIO%E6%A8%A1%E5%9E%8B.md)
-* [Java网络编程与NIO详解11：Tomcat中的Connector源码分析（NIO）](docs/java/jvm/Java网络编程与NIO详解11：Tomcat中的Connector源码分析（NIO）.md)
+* [Java网络编程和NIO详解1：JAVA 中原生的 socket 通信机制](docs/java/network-programming/Java网络编程和NIO详解1：JAVA%20中原生的%20socket%20通信机制.md)
+* [Java网络编程与NIO详解2：JAVA NIO 一步步构建IO多路复用的请求模型](docs/java/network-programming/Java网络编程与NIO详解2：JAVA%20NIO%20一步步构建IO多路复用的请求模型.md) 
+* [Java网络编程和NIO详解3：IO模型与Java网络编程模型](docs/java/network-programming/Java网络编程和NIO详解3：IO模型与Java网络编程模型.md) 
+* [Java网络编程与NIO详解4：浅析NIO包中的Buffer、Channel 和 Selector](docs/java/network-programming/Java网络编程与NIO详解4：浅析NIO包中的Buffer、Channel%20和%20Selector.md) 
+* [Java网络编程和NIO详解5：Java 非阻塞 IO 和异步 IO](docs/java/network-programming/Java网络编程和NIO详解5：Java%20非阻塞%20IO%20和异步%20IO.md)
+* [Java网络编程和NIO详解6：Linux epoll实现原理详解](docs/java/network-programming/Java网络编程和NIO详解6：Linux%20epoll实现原理详解.md) 
+* [Java网络编程和NIO详解7：浅谈 Linux 中NIO Selector 的实现原理](docs/java/network-programming/Java网络编程和NIO详解7：浅谈%20Linux%20中NIO%20Selector%20的实现原理.md)
+* [Java网络编程与NIO详解8：浅析mmap和Direct Buffer](docs/java/network-programming/Java网络编程与NIO详解8：浅析mmap和Direct%20Buffer.md)
+* [Java网络编程和NIO详解9：基于NIO的网络编程框架Netty](docs/java/network-programming/Java网络编程和NIO详解9：基于NIO的网络编程框架Netty.md)
+* [Java网络编程与NIO详解10：深度解读Tomcat中的NIO模型](docs/java/network-programming/Java网络编程与NIO详解10：深度解读Tomcat中的NIO模型.md)
+* [Java网络编程与NIO详解11：Tomcat中的Connector源码分析（NIO）](docs/java/network-programming/Java网络编程与NIO详解11：Tomcat中的Connector源码分析（NIO）.md)
 
 ## 算法
 
@@ -217,6 +215,7 @@ todo
 
 * [计算机网络学习总结](docs/network/计算机网络学习总结.md)
 * [tcp/ip必会](https://www.cxyxiaowu.com/11609.html)
+* [计算机网络——五层与七层模型](https://blog.csdn.net/liuchengzimozigreat/article/details/100169829)
 
 ### 操作系统
 
@@ -226,7 +225,7 @@ todo
 
 [Linux内核与基础命令学习总结](docs/operating-system/Linux内核与基础命令学习总结.md)
 
-#### 编译原理
+### 编译原理
 
 todo
 
@@ -249,7 +248,7 @@ todo
 ### MySQL
 * [Mysql原理与实践总结](docs/database/Mysql原理与实践总结.md)
 * [重新学习Mysql数据库1：无废话MySQL入门](docs/database/重新学习Mysql数据库1：无废话MySQL入门.md)
-* [重新学习Mysql数据库2：『浅入浅出』MySQL 和 InnoDB](docs/database/重新学习Mysql数据库2：%20『浅入浅出』MySQL%20和%20InnoDB.md)
+* [重新学习Mysql数据库2：『浅入浅出』MySQL 和 InnoDB](docs/database/重新学习Mysql数据库2：MySQL 和 InnoDB.md)
 * [重新学习Mysql数据库3：Mysql存储引擎与数据存储原理](docs/database/重新学习Mysql数据库3：Mysql存储引擎与数据存储原理.md)
 * [重新学习Mysql数据库4：Mysql索引实现原理和相关数据结构算法](docs/database/重新学习Mysql数据库4：Mysql索引实现原理和相关数据结构算法.md)
 * [重新学习Mysql数据库5：根据MySQL索引原理进行分析与优化](docs/database/重新学习Mysql数据库5：根据MySQL索引原理进行分析与优化.md)
@@ -358,6 +357,7 @@ todo
 todo
 
 ## 工具
+
 todo
 
 ## 资料

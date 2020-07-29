@@ -15,29 +15,9 @@
   * [当finally遇上return](#当finally遇上return)
   * [JAVA异常常见面试题](#java异常常见面试题)
   * [参考文章](#参考文章)
-  * [微信公众号](#微信公众号)
-    * [Java技术江湖](#java技术江湖)
-    * [个人公众号：黄小斜](#个人公众号：黄小斜)
 
----
+    
 
-    - Java异常
----
-
-本系列文章将整理到我在GitHub上的《Java面试指南》仓库，更多精彩内容请到我的仓库里查看
-> https://github.com/h2pl/Java-Tutorial
-
-喜欢的话麻烦点下Star哈
-
-文章首发于我的个人博客：
-> www.how2playlife.com
-
-本文是微信公众号【Java技术江湖】的《夯实Java基础系列博文》其中一篇，本文部分内容来源于网络，为了把本文主题讲得清晰透彻，也整合了很多我认为不错的技术博客内容，引用其中了一些比较好的博客文章，如有侵权，请联系作者。
-该系列博文会告诉你如何从入门到进阶，一步步地学习Java基础知识，并上手进行实战，接着了解每个Java知识点背后的实现原理，更完整地了解整个Java技术体系，形成自己的知识框架。为了更好地总结和检验你的学习成果，本系列文章也会提供每个知识点对应的面试题以及参考答案。
-
-如果对本系列文章有什么建议，或者是有什么疑问的话，也可以关注公众号【Java技术江湖】联系作者，欢迎你参与本系列博文的创作和修订。
-
-<!-- more -->
 ## 为什么要使用异常
 
 >   首先我们可以明确一点就是异常的处理机制可以确保我们程序的健壮性，提高系统可用率。虽然我们不是特别喜欢看到它，但是我们不能不承认它的地位，作用。
@@ -49,7 +29,6 @@
 >   2、 代码可读性差。将异常处理代码和程序代码混淆在一起将会降低代码的可读性。
 > 
 >   3、 由调用函数来分析异常，这要求程序员对库函数有很深的了解。
-> 
 
  在OO中提供的异常处理机制是提供代码健壮的强有力的方式。使用异常机制它能够降低错误处理代码的复杂度，如果不使用异常，那么就必须检查特定的错误，并在程序中的许多地方去处理它。
 
@@ -71,7 +50,7 @@
 
 ## 异常体系
 
-[外链图片转存失败(img-KNxcBTK0-1569073569353)(https://images0.cnblogs.com/blog/381060/201311/22185952-834d92bc2bfe498f9a33414cc7a2c8a4.png)]
+![外链图片转存失败(img-KNxcBTK0-1569073569353)](https://images0.cnblogs.com/blog/381060/201311/22185952-834d92bc2bfe498f9a33414cc7a2c8a4.png)
 
 从上面这幅图可以看出，Throwable是java语言中所有错误和异常的超类（万物即可抛）。它有两个子类：Error、Exception。
 
@@ -133,15 +112,15 @@ Throwable又派生出Error类和Exception类。
 
 
 ​    
-    //  ----欢迎使用命令行除法计算器----
-    //    r
-    //    Exception in thread "main" java.util.InputMismatchException
-    //    at java.util.Scanner.throwFor(Scanner.java:864)
-    //    at java.util.Scanner.next(Scanner.java:1485)
-    //    at java.util.Scanner.nextInt(Scanner.java:2117)
-    //    at java.util.Scanner.nextInt(Scanner.java:2076)
-    //    at com.javase.异常.异常.CMDCalculate(异常.java:17)
-    //    at com.javase.异常.异常.main(异常.java:12)
+​    //  ----欢迎使用命令行除法计算器----
+​    //    r
+​    //    Exception in thread "main" java.util.InputMismatchException
+​    //    at java.util.Scanner.throwFor(Scanner.java:864)
+​    //    at java.util.Scanner.next(Scanner.java:1485)
+​    //    at java.util.Scanner.nextInt(Scanner.java:2117)
+​    //    at java.util.Scanner.nextInt(Scanner.java:2076)
+​    //    at com.javase.异常.异常.CMDCalculate(异常.java:17)
+​    //    at com.javase.异常.异常.main(异常.java:12)
 
 
 [外链图片转存失败(img-9rqUQJQj-1569073569354)(http://incdn1.b0.upaiyun.com/2017/09/0b3e4ca2f4cf8d7116c7ad354940601f.png)]
@@ -840,7 +819,7 @@ Bloch编写的 [Effective Java 一书](http://www.amazon.com/dp/0321356683/?tag
 
 **9) JDK7中对异常处理做了什么改变？**
 
-　　这是最近新出的Java异常处理的面试题。JDK7中对错误(Error)和异常(Exception)处理主要新增加了2个特性，一是在一个catch块中可以出来多个异常，就像原来用多个catch块一样。另一个是自动化资源管理(ARM), 也称为try-with-resource块。这2个特性都可以在处理异常时减少代码量，同时提高代码的可读性。对于这些特性了解，不仅帮助开发者写出更好的异常处理的代码，也让你在面试中显的更突出。我推荐大家读一下Java 7攻略，这样可以更深入的了解这2个非常有用的特性。
+　　这是最近新出的Java异常处理的面试题。JDK7中对错误(Error)和异常(Exception)处理主要新增加了2个特性，一是在一个catch块中可以处理多个异常，就像原来用多个catch块一样。另一个是自动化资源管理(ARM), 也称为try-with-resource块。这2个特性都可以在处理异常时减少代码量，同时提高代码的可读性。对于这些特性了解，不仅帮助开发者写出更好的异常处理的代码，也让你在面试中显的更突出。我推荐大家读一下Java 7攻略，这样可以更深入的了解这2个非常有用的特性。
 
 **10) 你遇到过 OutOfMemoryError 错误嘛？你是怎么搞定的？**
 
@@ -861,22 +840,3 @@ https://www.jianshu.com/p/49d2c3975c56
 http://c.biancheng.net/view/1038.html
 https://blog.csdn.net/Lisiluan/article/details/88745820
 https://blog.csdn.net/michaelgo/article/details/82790253
-
-## 微信公众号
-
-### Java技术江湖
-
-如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号【Java技术江湖】一位阿里 Java 工程师的技术小站，作者黄小斜，专注 Java 相关技术：SSM、SpringBoot、MySQL、分布式、中间件、集群、Linux、网络、多线程，偶尔讲点Docker、ELK，同时也分享技术干货和学习经验，致力于Java全栈开发！
-
-**Java工程师必备学习资源:** 一些Java工程师常用学习资源，关注公众号后，后台回复关键字 **“Java”** 即可免费无套路获取。
-
-![我的公众号](https://img-blog.csdnimg.cn/20190805090108984.jpg)
-
-### 个人公众号：黄小斜
-
-作者是 985 硕士，蚂蚁金服 JAVA 工程师，专注于 JAVA 后端技术栈：SpringBoot、MySQL、分布式、中间件、微服务，同时也懂点投资理财，偶尔讲点算法和计算机理论基础，坚持学习和写作，相信终身学习的力量！
-
-**程序员3T技术学习资源：** 一些程序员学习技术的资源大礼包，关注公众号后，后台回复关键字 **“资料”** 即可免费无套路获取。 
-
-![](https://img-blog.csdnimg.cn/20190829222750556.jpg)
-

@@ -361,7 +361,8 @@ create database database4 character set utf8;
 
 执行`bin`目录下的`startup_nowrap.bat`文件，如果输出下面内容，则说明已经启动mycat成功，如果没有，请检查`order,trade,user,comment`4个数据库是否已经创建。
 
-<embed src="https://img2018.cnblogs.com/blog/1092007/201908/1092007-20190824171417782-1932957742.webp">
+<embed src="https://img2018.cnblogs.com/blog/1092007/201908/1092007-20190824171417782-1932957742.webp">.webp">
+
 
 采用下面语句登陆Mycat服务器：
 
