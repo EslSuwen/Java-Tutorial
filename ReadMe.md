@@ -248,7 +248,7 @@ todo
 ### MySQL
 * [Mysql原理与实践总结](docs/database/Mysql原理与实践总结.md)
 * [重新学习Mysql数据库1：无废话MySQL入门](docs/database/重新学习Mysql数据库1：无废话MySQL入门.md)
-* [重新学习Mysql数据库2：『浅入浅出』MySQL 和 InnoDB](docs/database/重新学习Mysql数据库2：MySQL 和 InnoDB.md)
+* [重新学习Mysql数据库2：『浅入浅出』MySQL 和 InnoDB](docs/database/重新学习Mysql数据库2：MySQL%20和%20InnoDB.md)
 * [重新学习Mysql数据库3：Mysql存储引擎与数据存储原理](docs/database/重新学习Mysql数据库3：Mysql存储引擎与数据存储原理.md)
 * [重新学习Mysql数据库4：Mysql索引实现原理和相关数据结构算法](docs/database/重新学习Mysql数据库4：Mysql索引实现原理和相关数据结构算法.md)
 * [重新学习Mysql数据库5：根据MySQL索引原理进行分析与优化](docs/database/重新学习Mysql数据库5：根据MySQL索引原理进行分析与优化.md)
@@ -345,6 +345,8 @@ todo
 
 ### 典例问题
 
+* [熟记算法](docs/code/code.md)
+
 * [Java面试大纲](https://www.jianshu.com/p/a07d1d4004b0)
 * [校招Java后端](https://www.zhihu.com/question/403508943/answer/1311334943)
 * [常见SSM](https://zhuanlan.zhihu.com/p/140394330)
@@ -354,6 +356,7 @@ todo
 todo
 
 ### 面经
+
 todo
 
 ## 工具

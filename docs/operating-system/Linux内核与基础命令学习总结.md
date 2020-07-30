@@ -60,32 +60,9 @@
   * [ifconfig](#ifconfig)
   * [uname](#uname)
   * [实际场景问题](#实际场景问题)
-  * [微信公众号](#微信公众号)
-    * [Java技术江湖](#java技术江湖)
-    * [个人公众号：黄小斜](#个人公众号：黄小斜)
+  
+    
 
-
----
-title: Linux内核与基础命令学习总结
-date: 2018-07-09 22:33:14
-tags:
-	- Linux
-categories:
-	- 后端
-	- 技术总结
----
-这部分内容主要是基于一些关于Linux系统的内核基础和基本命令的学习总结，内容不全面，只讲述了其中的一小部分，后续会再补充，如有错误，还请见谅。
-
-
-Linux操作系统
-
-
-
-Linux操作系统博大精深，其中对线程，IO，文件系统等概念的实现都很有借鉴意义。
-<!-- more -->
-
-
-​        
 ## 文件系统和VFS
 
 文件系统的inode上面讲过了。VFS主要用于屏蔽底层的不同文件系统，比如接入网络中的nfs文件系统，亦或是windows文件系统，正常情况下难以办到，而vfs通过使用IO操作的posix规范来规定所有文件读写操作，每个文件系统只需要实现这些操作就可以接入VFS，不需要重新安装文件系统。
@@ -513,9 +490,9 @@ ps:拥有目录权限才能修改文件名，拥有文件权限是没用的
 
 
 ​    
-    # ln /etc/crontab .
-    # ll -i /etc/crontab crontab
-    
+​    # ln /etc/crontab .
+​    # ll -i /etc/crontab crontab
+​    
     34474855 -rw-r--r--. 2 root root 451 Jun 10 2014 crontab
     34474855 -rw-r--r--. 2 root root 451 Jun 10 2014 /etc/crontab
 

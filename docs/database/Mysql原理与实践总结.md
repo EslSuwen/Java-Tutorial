@@ -23,25 +23,6 @@
   * [分布式数据库](#分布式数据库)
 
 
----
-title: Mysql原理与实践总结
-date: 2018-07-08 22:15:04
-tags:
-	- Mysql
-categories:
-	- 后端
-	- 技术总结
----
-
-本文根据自己对MySQL的学习和实践以及各类文章与书籍总结而来。
-囊括了MySQL数据库的基本原理和技术。本文主要是我的一个学习总结，基于之前的系列文章做了一个概括，如有错误，还望指出，谢谢。
-
-详细内容请参考我的系列文章：
-
-重新学习MySQL与Redis
-
-https://blog.csdn.net/column/details/21877.html
-<!-- more -->
 
 # 数据库原理
 Mysql是关系数据库。
@@ -82,6 +63,8 @@ Mysql是关系数据库。
 
 隔离性：两个事务之间互不相干，不能互相影响。
 
+持久性：事务完成以后，该事务所对数据库所作的更改便持久的保存在数据库之中，并不会被回滚。
+
 事务的隔离级别
 读未提交：事务A和事务B，A事务中执行的操作，B也可以看得到，因为级别是未提交读，别人事务中还没提交的数据你也看得到。这是没有任何并发措施的级别，也是默认级别。这个问题叫做脏读，为了解决这个问题，提出了读已提交。
 
@@ -99,7 +82,7 @@ Mysql是关系数据库。
 
 # mysql原理
 
-MySQL是oracle公司的免费数据库，作为关系数据库火了很久了。所以我们要学他。
+MySQL是oracle公司的免费数据库，作为关系数据库火了很久了。所以我们要学它。
 
 ## mysql客户端，服务端，存储引擎，文件系统
 
@@ -197,7 +180,7 @@ User Records 就是整个页面中真正用于存放行记录的部分，而 Fre
 
 ## mysql的索引，b树，聚集索引
 
-1 MySQL的innodb支持聚簇索引，myisam不支持聚簇索引。
+1. MySQL的innodb支持聚簇索引，myisam不支持聚簇索引。
 
 innodb在建表时自动按照第一个非空字段或者主键建立聚簇索引。mysql使用B+树建立索引。
 
@@ -205,7 +188,7 @@ innodb在建表时自动按照第一个非空字段或者主键建立聚簇索�
 
 一个节点页对应着多行数据，每个节点按照顺序使用指针连成一个链表。mysql使用索引访问一行数据时，先通过log2n的时间访问到叶子节点，然后在数据页中按照行数链表执行顺序查找，直到找到那一行数据。
 
-2 b+树索引可以很好地支持范围搜索，因为叶子节点通过指针相连。
+2. b+树索引可以很好地支持范围搜索，因为叶子节点通过指针相连。
 
 ## mysql的explain 慢查询日志
 
@@ -233,8 +216,8 @@ mysql慢查询日志可以在mysql的,my.cnf文件中配置开启，然后执行
 ​    
 ​    EXPLAIN SELECT * FROM vote_record WHERE id > 0 AND vote_num > 1000;
 ​    
-    id	select_type	table	partitions	type	possible_keys	key	key_len	ref	rows	filtered	Extra
-    
+​    id	select_type	table	partitions	type	possible_keys	key	key_len	ref	rows	filtered	Extra
+​    
     1	SIMPLE	vote_record	\N	range	PRIMARY,votenum,vote	PRIMARY	4	\N	498253	50.00	Using where
 
 
@@ -313,7 +296,7 @@ innodb支持行级锁和事务，而myisam只支持表锁，它的所有操作�
     
     通过时间戳来判断先后顺序，并且是无锁的。但是需要额外存一个字段。
     
-    读操作比较自己的版本号，自动读取比自己版本号新的版本。不读。
+    读操作比较自己的版本号，自动读取比自己版本号新的版本。否则不读。
     
     写操作自动覆盖写版本号比自己的版本号早的版本。否则不写。
     
