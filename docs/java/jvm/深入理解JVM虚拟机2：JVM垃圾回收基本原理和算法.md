@@ -29,27 +29,7 @@
   * [微信公众号](#微信公众号)
     * [Java技术江湖](#java技术江湖)
     * [个人公众号：黄小斜](#个人公众号：黄小斜)
-
-
-本文转自互联网，侵删
-
-本系列文章将整理到我在GitHub上的《Java面试指南》仓库，更多精彩内容请到我的仓库里查看
-> https://github.com/h2pl/Java-Tutorial
-
-喜欢的话麻烦点下Star哈
-
-文章将同步到我的个人博客：
-> www.how2playlife.com
-
-本文是微信公众号【Java技术江湖】的《深入理解JVM虚拟机》其中一篇，本文部分内容来源于网络，为了把本文主题讲得清晰透彻，也整合了很多我认为不错的技术博客内容，引用其中了一些比较好的博客文章，如有侵权，请联系作者。
-
-该系列博文会告诉你如何从入门到进阶，一步步地学习JVM基础知识，并上手进行JVM调优实战，JVM是每一个Java工程师必须要学习和理解的知识点，你必须要掌握其实现原理，才能更完整地了解整个Java技术体系，形成自己的知识框架。
-
-为了更好地总结和检验你的学习成果，本系列文章也会提供每个知识点对应的面试题以及参考答案。
-
-如果对本系列文章有什么建议，或者是有什么疑问的话，也可以关注公众号【Java技术江湖】联系作者，欢迎你参与本系列博文的创作和修订。
-
-<!-- more -->
+    * 
 
 ## JVM GC基本原理与GC算法
 
@@ -248,9 +228,10 @@ Survivor 区（S0 和 S1）：作为年轻代 GC（Minor GC）周期的一部分
             System.out.println("Main is completed.");
     
         }
-    
-     
-    
+
+
+​     
+​    
         protected void finalize() {
     
             System.out.println("Rest in Peace!");
@@ -271,9 +252,10 @@ Survivor 区（S0 和 S1）：作为年轻代 GC（Minor GC）周期的一部分
         GCScope t;
     
         static int i = 1;
-    
-     
-    
+
+
+​     
+​    
         public static void main(String args[]) {
     
             GCScope t1 = new GCScope();
@@ -281,33 +263,38 @@ Survivor 区（S0 和 S1）：作为年轻代 GC（Minor GC）周期的一部分
             GCScope t2 = new GCScope();
     
             GCScope t3 = new GCScope();
-    
-     
-    
+
+
+​     
+​    
             // No Object Is Eligible for GC
-    
-     
-    
+
+
+​     
+​    
             t1.t = t2; // No Object Is Eligible for GC
     
             t2.t = t3; // No Object Is Eligible for GC
     
             t3.t = t1; // No Object Is Eligible for GC
-    
-     
-    
+
+
+​     
+​    
             t1 = null;
     
             // No Object Is Eligible for GC (t3.t still has a reference to t1)
-    
-     
-    
+
+
+​     
+​    
             t2 = null;
     
             // No Object Is Eligible for GC (t3.t.t still has a reference to t2)
-    
-     
-    
+
+
+​     
+​    
             t3 = null;
     
             // All the 3 Object Is Eligible for GC (None of them have a reference.
@@ -319,9 +306,10 @@ Survivor 区（S0 和 S1）：作为年轻代 GC（Minor GC）周期的一部分
             // reference)
     
         }
-    
-     
-    
+
+
+​     
+​    
         protected void finalize() {
     
             System.out.println("Garbage collected from object" + i);
@@ -329,17 +317,19 @@ Survivor 区（S0 和 S1）：作为年轻代 GC（Minor GC）周期的一部分
             i++;
     
         }
-    
-     
-    
+
+
+​     
+​    
     class GCScope {
     
         GCScope t;
     
         static int i = 1;
-    
-     
-    
+
+
+​     
+​    
         public static void main(String args[]) {
     
             GCScope t1 = new GCScope();
@@ -347,9 +337,10 @@ Survivor 区（S0 和 S1）：作为年轻代 GC（Minor GC）周期的一部分
             GCScope t2 = new GCScope();
     
             GCScope t3 = new GCScope();
-    
-     
-    
+
+
+​     
+​    
             // 没有对象符合GC
     
             t1.t = t2; // 没有对象符合GC
@@ -357,21 +348,24 @@ Survivor 区（S0 和 S1）：作为年轻代 GC（Minor GC）周期的一部分
             t2.t = t3; // 没有对象符合GC
     
             t3.t = t1; // 没有对象符合GC
-    
-     
-    
+
+
+​     
+​    
             t1 = null;
     
             // 没有对象符合GC (t3.t 仍然有一个到 t1 的引用)
-    
-     
-    
+
+
+​     
+​    
             t2 = null;
     
             // 没有对象符合GC (t3.t.t 仍然有一个到 t2 的引用)
-    
-     
-    
+
+
+​     
+​    
             t3 = null;
     
             // 所有三个对象都符合GC (它们中没有一个拥有引用。
@@ -381,9 +375,10 @@ Survivor 区（S0 和 S1）：作为年轻代 GC（Minor GC）周期的一部分
             // 形成了一个由对象组成的环形的岛，而没有任何外部的引用。)
     
         }
-    
-     
-    
+
+
+​     
+​    
         protected void finalize() {
     
             System.out.println("Garbage collected from object" + i);

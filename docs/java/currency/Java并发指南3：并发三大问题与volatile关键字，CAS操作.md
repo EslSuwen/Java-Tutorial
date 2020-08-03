@@ -59,7 +59,7 @@
     		return ((b == 0) || (b == -1 && a == 1));
     	}
     }
-     
+
 
 
 
@@ -181,7 +181,7 @@ Java内存模型没有具体讲述前面讨论的执行策略是由编译器，C
     }
 
 
-    
+​    
 
 假设有多个线程分别调用上面程序的三个方法，这个程序在语意上和下面程序等价：
     class VolatileFeaturesExample {
@@ -203,7 +203,7 @@ Java内存模型没有具体讲述前面讨论的执行策略是由编译器，C
     }
 
 
-    
+​    
 
 如上面示例程序所示，对一个volatile变量的单个读/写操作，与对一个普通变量的读/写操作使用同一个监视器锁来同步，它们之间的执行效果相同。
 
@@ -226,21 +226,21 @@ Java内存模型没有具体讲述前面讨论的执行策略是由编译器，C
 class VolatileExample {
 	int a = 0;
 	volatile boolean flag = false;
- 
+
 	public void writer() {
 		a = 1; // 1
 		flag = true; // 2
 	}
 	public void reader() {
-        if (flag) {                //3
-            int i =  a;           //4
-            ……
-        }
-    }
+	    if (flag) {                //3
+	        int i =  a;           //4
+	        ……
+	    }
+	}
 }
 
 
-    
+​    
 
 假设线程A执行writer()方法之后，线程B执行reader()方法。根据happens before规则，这个过程建立的happens before 关系可以分为两类：
 
@@ -350,7 +350,7 @@ volatile读的内存语义如下：
     }
 
 
-    
+​    
 
 针对readAndWrite()方法，编译器在生成字节码时可以做如下的优化：
 
@@ -530,7 +530,7 @@ JVM中的CAS操作正是利用了上一节中提到的处理器提供的CMPXCHG�
     992362
     1000000
     75
-    
+
 
 
 
@@ -542,7 +542,7 @@ JVM中的CAS操作正是利用了上一节中提到的处理器提供的CMPXCHG�
 
 从Java1.5开始JDK的atomic包里提供了一个类AtomicStampedReference来解决ABA问题。这个类的compareAndSet方法作用是首先检查当前引用是否等于预期引用，并且当前标志是否等于预期标志，如果全部相等，则以原子方式将该引用和该标志的值设置为给定的更新值。
 
-    
+
     public boolean compareAndSet(
        V      expectedReference,//预期引用
      
