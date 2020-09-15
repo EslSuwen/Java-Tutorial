@@ -81,7 +81,7 @@ JDK静态代理是通过直接编码创建的，而JDK动态代理是利用反�
 
 ### Proxy类中的newProxyInstance
 
-```
+```java
  public static Object newProxyInstance(ClassLoader loader,
                                           Class<?>[] interfaces,
                                           InvocationHandler h)
@@ -141,9 +141,9 @@ JDK静态代理是通过直接编码创建的，而JDK动态代理是利用反�
 
 所以代理类其实是通过getProxyClass方法来生成的：
 
-```
- /**
-     * 生成一个代理类，但是在调用本方法之前必须进行权限检查
+```java
+	/**
+	 * 生成一个代理类，但是在调用本方法之前必须进行权限检查
      */
     private static Class<?> getProxyClass0(ClassLoader loader,
                                            Class<?>... interfaces) {
@@ -161,7 +161,7 @@ JDK静态代理是通过直接编码创建的，而JDK动态代理是利用反�
 
 那么ProxyClassFactory是什么呢？
 
-```
+```java
    /**
      *  里面有一个根据给定ClassLoader和Interface来创建代理类的工厂函数  
      *
@@ -270,7 +270,7 @@ JDK静态代理是通过直接编码创建的，而JDK动态代理是利用反�
 
 由上方代码byte[] proxyClassFile = ProxyGenerator.generateProxyClass(proxyName, interfaces, accessFlags);可以看到，其实生成代理类字节码文件的工作是通过 ProxyGenerate类中的generateProxyClass方法来完成的。
 
-```
+```java
  public static byte[] generateProxyClass(final String var0, Class<?>[] var1, int var2) {
         ProxyGenerator var3 = new ProxyGenerator(var0, var1, var2);
        // 真正用来生成代理类字节码文件的方法在这里
@@ -307,7 +307,7 @@ JDK静态代理是通过直接编码创建的，而JDK动态代理是利用反�
 
 下面来看看真正用于生成代理类字节码文件的generateClassFile方法：
 
-```
+```java
 private byte[] generateClassFile() {
         //下面一系列的addProxyMethod方法是将接口中的方法和Object中的方法添加到代理方法中(proxyMethod)
         this.addProxyMethod(hashCodeMethod, Object.class);
@@ -432,7 +432,7 @@ private byte[] generateClassFile() {
 
 下面是将接口与Object中一些方法添加到代理类中的addProxyMethod方法：
 
-```
+```java
 private void addProxyMethod(Method var1, Class<?> var2) {
         String var3 = var1.getName();//获得方法名称
         Class[] var4 = var1.getParameterTypes();//获得方法参数类型
@@ -465,7 +465,7 @@ private void addProxyMethod(Method var1, Class<?> var2) {
 
 这就是最终真正的代理类，它继承自Proxy并实现了我们定义的Subject接口。我们通过
 
-```
+```java
 HelloInterface helloInterface = (HelloInterface ) Proxy.newProxyInstance(loader, interfaces, handler);
 ```
 
@@ -473,7 +473,7 @@ HelloInterface helloInterface = (HelloInterface ) Proxy.newProxyInstance(loader,
 
 得到的最终代理类对象就是上面这个类的实例。那么我们执行如下语句：
 
-```
+```java
 helloInterface.hello("Tom");
 ```
 
@@ -481,7 +481,7 @@ helloInterface.hello("Tom");
 
 实际上就是执行上面类的相应方法，也就是：
 
-```
+```java
  public final void hello(String paramString)
   {
     try
@@ -503,13 +503,13 @@ helloInterface.hello("Tom");
 
 注意这里的`this.h.invoke`中的h，它是类Proxy中的一个属性
 
-```
+```java
  protected InvocationHandler h;
 ```
 
 因为这个代理类继承了Proxy，所以也就继承了这个属性，而这个属性值就是我们定义的
 
-```
+```java
 InvocationHandler handler = new InvocationHandlerImpl(hello);
 ```
 
@@ -576,7 +576,7 @@ JDK代理要求被代理的类必须实现接口，有很强的局限性。而CG
 
 我们来看看将代理类Class文件反编译之后的Java代码
 
-```
+```java
 package proxy;
 
 import java.lang.reflect.Method;

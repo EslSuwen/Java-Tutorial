@@ -7,28 +7,8 @@
   * [使用AOP](#使用aop)
   * [AOP总结](#aop总结)
 
+> 本文转自五月的仓颉 https://www.cnblogs.com/xrq730
 
-本文转自五月的仓颉 https://www.cnblogs.com/xrq730
-
-本系列文章将整理到我在GitHub上的《Java面试指南》仓库，更多精彩内容请到我的仓库里查看
-> https://github.com/h2pl/Java-Tutorial
-
-喜欢的话麻烦点下Star哈
-
-文章将同步到我的个人博客：
-> www.how2playlife.com
-
-本文是微信公众号【Java技术江湖】的《Spring和SpringMVC源码分析》其中一篇，本文部分内容来源于网络，为了把本文主题讲得清晰透彻，也整合了很多我认为不错的技术博客内容，引用其中了一些比较好的博客文章，如有侵权，请联系作者。
-
-该系列博文会告诉你如何从spring基础入手，一步步地学习spring基础和springmvc的框架知识，并上手进行项目实战，spring框架是每一个Java工程师必须要学习和理解的知识点，进一步来说，你还需要掌握spring甚至是springmvc的源码以及实现原理，才能更完整地了解整个spring技术体系，形成自己的知识框架。
-
-后续还会有springboot和springcloud的技术专题，陆续为大家带来，敬请期待。
-
-为了更好地总结和检验你的学习成果，本系列文章也会提供部分知识点对应的面试题以及参考答案。
-
-如果对本系列文章有什么建议，或者是有什么疑问的话，也可以关注公众号【Java技术江湖】联系作者，欢迎你参与本系列博文的创作和修订。
-
-<!-- more -->
 ## 我们为什么要使用 AOP
 
 
@@ -39,12 +19,12 @@
 原始代码的写法
 既然要通过代码来演示，那必须要有例子，这里我的例子为：
 
-
 有一个接口Dao有insert、delete、update三个方法，在insert与update被调用的前后，打印调用前的毫秒数与调用后的毫秒数
 首先定义一个Dao接口：
 
-```
+```java
 /**
+ *
  * @author 五月的仓颉http://www.cnblogs.com/xrq730/p/7003082.html
  */
 public interface Dao {
@@ -60,7 +40,7 @@ public interface Dao {
 
 然后定义一个实现类DaoImpl：
 
-```
+```java
 /**
  * @author 五月的仓颉http://www.cnblogs.com/xrq730/p/7003082.html
  */
@@ -86,7 +66,7 @@ public class DaoImpl implements Dao {
 
 最原始的写法，我要在调用insert()与update()方法前后分别打印时间，就只能定义一个新的类包一层，在调用insert()方法与update()方法前后分别处理一下，新的类我命名为ServiceImpl，其实现为：
 
-```
+```java
 /**
  * @author 五月的仓颉http://www.cnblogs.com/xrq730/p/7003082.html
  */
@@ -122,7 +102,7 @@ public class ServiceImpl {
 ## 使用装饰器模式
 接着我们使用上设计模式，先用装饰器模式，看看能解决多少问题。装饰器模式的核心就是实现Dao接口并持有Dao接口的引用，我将新增的类命名为LogDao，其实现为：
 
-```
+```java
 /**
  * @author 五月的仓颉http://www.cnblogs.com/xrq730/p/7003082.html
  */
@@ -169,7 +149,7 @@ public class LogDao implements Dao {
 ## 使用代理模式
 接着我们使用代理模式尝试去实现最原始的功能，使用代理模式，那么我们就要定义一个InvocationHandler，我将它命名为LogInvocationHandler，其实现为：
 
-```
+```java
 /**
  * @author 五月的仓颉http://www.cnblogs.com/xrq730/p/7003082.html
  */
@@ -200,7 +180,7 @@ public class LogInvocationHandler implements InvocationHandler {
 
 其调用方式很简单，我写一个main函数：
 
-```
+```java
 /**
  * @author 五月的仓颉http://www.cnblogs.com/xrq730/p/7003082.html
  */
@@ -229,7 +209,7 @@ JDK提供的动态代理只能针对接口做代理，不能针对类做代理
 ## 使用CGLIB
 接着看一下使用CGLIB的方式，使用CGLIB只需要实现MethodInterceptor接口即可：
 
-```
+```java
 /**
  * @author 五月的仓颉http://www.cnblogs.com/xrq730/p/7003082.html
  */
@@ -256,7 +236,7 @@ public class DaoProxy implements MethodInterceptor {
 
 代码调用方式为：
 
-```
+```java
 /**
  * @author 五月的仓颉http://www.cnblogs.com/xrq730/p/7003082.html
  */
@@ -289,7 +269,7 @@ public static void main(String[] args) {
 
 最后来看一下使用AOP的方式，首先定义一个时间处理类，我将它命名为TimeHandler：
 
-```
+```java
 /**
  * @author 五月的仓颉http://www.cnblogs.com/xrq730/p/7003082.html
  */
@@ -320,7 +300,7 @@ public class TimeHandler {
 
 接着看一下aop.xml的配置：
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -339,7 +319,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 
 </beans>
-```
+```java
 
 我不大会写expression，也懒得去百度了，因此这里就拦截Dao下的所有方法了。测试代码很简单：
 
@@ -382,7 +362,7 @@ AOP使用场景举例
 
 第一个例子，我们知道MyBatis的事务默认是不会自动提交的，因此在编程的时候我们必须在增删改完毕之后调用SqlSession的commit()方法进行事务提交，这非常麻烦，下面利用AOP简单写一段代码帮助我们自动提交事务（这段代码我个人测试过可用）：
 
-```
+```java
 /**
  * @author 五月的仓颉http://www.cnblogs.com/xrq730/p/7003082.html
  */
@@ -421,7 +401,7 @@ insert、update、delete操作事务自动提交
 
 第二个例子是权限控制的例子，不管是从安全角度考虑还是从业务角度考虑，我们在开发一个Web系统的时候不可能所有请求都对所有用户开放，因此这里就需要做一层权限控制了，大家看AOP作用的时候想必也肯定会看到AOP可以做权限控制，这里我就演示一下如何使用AOP做权限控制。我们知道原生的Spring MVC，Java类是实现Controller接口的，基于此，利用AOP做权限控制的大致代码如下（这段代码纯粹就是一段示例，我构建的Maven工程是一个普通的Java工程，因此没有验证过）：
 
-```
+```java
 /**
  * @author 五月的仓颉http://www.cnblogs.com/xrq730/p/7003082.html
  */

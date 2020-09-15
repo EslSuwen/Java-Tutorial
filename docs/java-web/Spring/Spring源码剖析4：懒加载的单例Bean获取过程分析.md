@@ -5,28 +5,7 @@
   * [step2:](#step2)
   * [step3 : 我们已经step by step 的看到了如何将xml文件转换成Document的，现在就要分析是如何提取和注册bean的。](#step3--我们已经step-by-step-的看到了如何将xml文件转换成document的，现在就要分析是如何提取和注册bean的。)
 
-
-本文转自五月的仓颉 https://www.cnblogs.com/xrq730
-
-本系列文章将整理到我在GitHub上的《Java面试指南》仓库，更多精彩内容请到我的仓库里查看
-> https://github.com/h2pl/Java-Tutorial
-
-喜欢的话麻烦点下Star哈
-
-文章将同步到我的个人博客：
-> www.how2playlife.com
-
-本文是微信公众号【Java技术江湖】的《Spring和SpringMVC源码分析》其中一篇，本文部分内容来源于网络，为了把本文主题讲得清晰透彻，也整合了很多我认为不错的技术博客内容，引用其中了一些比较好的博客文章，如有侵权，请联系作者。
-
-该系列博文会告诉你如何从spring基础入手，一步步地学习spring基础和springmvc的框架知识，并上手进行项目实战，spring框架是每一个Java工程师必须要学习和理解的知识点，进一步来说，你还需要掌握spring甚至是springmvc的源码以及实现原理，才能更完整地了解整个spring技术体系，形成自己的知识框架。
-
-后续还会有springboot和springcloud的技术专题，陆续为大家带来，敬请期待。
-
-为了更好地总结和检验你的学习成果，本系列文章也会提供部分知识点对应的面试题以及参考答案。
-
-如果对本系列文章有什么建议，或者是有什么疑问的话，也可以关注公众号【Java技术江湖】联系作者，欢迎你参与本系列博文的创作和修订。
-
-<!-- more -->
+> 本文转自五月的仓颉 https://www.cnblogs.com/xrq730
 
 ## 前言
 

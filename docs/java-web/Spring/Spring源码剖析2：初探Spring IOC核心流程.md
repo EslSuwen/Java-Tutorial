@@ -15,7 +15,7 @@
 
 接下来的文章会更加深入剖析Bean容器如何解析xml，注册和初始化bean，以及如何获取bean实例等详细的过程。
 
-转自：[http://www.importnew.com/19243.html](http://www.importnew.com/19243.html)
+> 转自：[http://www.importnew.com/19243.html](http://www.importnew.com/19243.html)
 
 1\. 初始化
 
@@ -37,7 +37,7 @@
 ```
 
 加载时需要读取、解析、注册bean，这个过程具体的调用栈如下所示：
-[![](https://cloud.githubusercontent.com/assets/1736354/7896285/8a488060-06e6-11e5-9ad9-4ddd3375984f.png "load")](https://cloud.githubusercontent.com/assets/1736354/7896285/8a488060-06e6-11e5-9ad9-4ddd3375984f.png "load")
+![](https://cloud.githubusercontent.com/assets/1736354/7896285/8a488060-06e6-11e5-9ad9-4ddd3375984f.png )
 
 下面对每一步的关键的代码进行详细分析：
 
@@ -46,7 +46,7 @@
 保存配置位置，并刷新
 在调用ClassPathXmlApplicationContext后，先会将配置位置信息保存到configLocations，供后面解析使用，之后，会调用`AbstractApplicationContext`的refresh方法进行刷新：
 
-```
+```java
 public ClassPathXmlApplicationContext(String[] configLocations, boolean refresh,
         ApplicationContext parent) throws BeansException {
 
@@ -101,7 +101,7 @@ public void refresh() throws BeansException, IllegalStateException {
 
 创建载入BeanFactory
 
-```
+```java
 protected final void refreshBeanFactory() throws BeansException {
     // ... ...
     DefaultListableBeanFactory beanFactory = createBeanFactory();
@@ -113,7 +113,7 @@ protected final void refreshBeanFactory() throws BeansException {
 
 创建XMLBeanDefinitionReader
 
-```
+```java
 protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory)
      throws BeansException, IOException {
     // Create a new XmlBeanDefinitionReader for the given BeanFactory.
@@ -129,7 +129,7 @@ protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory)
 
 创建处理每一个resource
 
-```
+```java
 public int loadBeanDefinitions(String location, Set<Resource> actualResources)
      throws BeanDefinitionStoreException {
     // ... ...
@@ -152,7 +152,7 @@ public int loadBeanDefinitions(Resource... resources) throws BeanDefinitionStore
 
 处理XML每个元素
 
-```
+```java
 protected void parseBeanDefinitions(Element root, BeanDefinitionParserDelegate delegate) {
     // ... ...
     NodeList nl = root.getChildNodes();
@@ -175,7 +175,7 @@ protected void parseBeanDefinitions(Element root, BeanDefinitionParserDelegate d
 
 解析和注册bean
 
-```
+```java
 protected void processBeanDefinition(Element ele, BeanDefinitionParserDelegate delegate) {
     // 解析
     BeanDefinitionHolder bdHolder = delegate.parseBeanDefinitionElement(ele);
@@ -201,11 +201,11 @@ protected void processBeanDefinition(Element ele, BeanDefinitionParserDelegate d
 
 ## 解析
 
-[![](https://cloud.githubusercontent.com/assets/1736354/7896302/eae02bc6-06e6-11e5-941a-d1f59e3b363f.png "process")](https://cloud.githubusercontent.com/assets/1736354/7896302/eae02bc6-06e6-11e5-941a-d1f59e3b363f.png "process")
+![](https://cloud.githubusercontent.com/assets/1736354/7896302/eae02bc6-06e6-11e5-941a-d1f59e3b363f.png)
 
 处理每个Bean的元素
 
-```
+```java
 public AbstractBeanDefinition parseBeanDefinitionElement(
         Element ele, String beanName, BeanDefinition containingBean) {
 
@@ -230,7 +230,7 @@ public AbstractBeanDefinition parseBeanDefinitionElement(
 
 处理属性的值
 
-```
+```java
 public Object parsePropertyValue(Element ele, BeanDefinition bd, String propertyName) {
     String elementName = (propertyName != null) ?
                     "<property> element for property '" + propertyName + "'" :
@@ -264,7 +264,7 @@ public Object parsePropertyValue(Element ele, BeanDefinition bd, String property
 
 1.4 注册
 
-```
+```java
 public static void registerBeanDefinition(
         BeanDefinitionHolder definitionHolder, BeanDefinitionRegistry registry)
         throws BeanDefinitionStoreException {
@@ -299,7 +299,7 @@ public void registerBeanDefinition(String beanName, BeanDefinition beanDefinitio
 
 ## 注册
 
-```
+```java
     public static void registerBeanDefinition(
         BeanDefinitionHolder definitionHolder, BeanDefinitionRegistry registry)
         throws BeanDefinitionStoreException {
@@ -338,19 +338,19 @@ public void registerBeanDefinition(String beanName, BeanDefinition beanDefinitio
 ### 注入依赖
 
 当完成初始化IOC容器后，如果bean没有设置lazy-init(延迟加载)属性，那么bean的实例就会在初始化IOC完成之后，及时地进行初始化。初始化时会先建立实例，然后根据配置利用反射对实例进行进一步操作，具体流程如下所示：
-[![](https://cloud.githubusercontent.com/assets/1736354/7929429/615570ea-0930-11e5-8097-ae982ef7709d.png "bean_flow")](https://cloud.githubusercontent.com/assets/1736354/7929429/615570ea-0930-11e5-8097-ae982ef7709d.png "bean_flow")
+![](https://cloud.githubusercontent.com/assets/1736354/7929429/615570ea-0930-11e5-8097-ae982ef7709d.png)
 
 创建bean的实例
 创建bean的实例过程函数调用栈如下所示：
-[![](https://cloud.githubusercontent.com/assets/1736354/7929379/cec01bcc-092f-11e5-81ad-88c285f33845.png "create_bean")](https://cloud.githubusercontent.com/assets/1736354/7929379/cec01bcc-092f-11e5-81ad-88c285f33845.png "create_bean")
+![](https://cloud.githubusercontent.com/assets/1736354/7929379/cec01bcc-092f-11e5-81ad-88c285f33845.png)
 
 注入bean的属性
 注入bean的属性过程函数调用栈如下所示：
-[![](https://cloud.githubusercontent.com/assets/1736354/7929381/db58350e-092f-11e5-82a4-caaf349291ea.png "inject_property")](https://cloud.githubusercontent.com/assets/1736354/7929381/db58350e-092f-11e5-82a4-caaf349291ea.png "inject_property")
+![](https://cloud.githubusercontent.com/assets/1736354/7929381/db58350e-092f-11e5-82a4-caaf349291ea.png)
 
 在创建bean和注入bean的属性时，都是在doCreateBean函数中进行的，我们重点看下：
 
-```
+```java
 protected Object doCreateBean(final String beanName, final RootBeanDefinition mbd,
             final Object[] args) {
         // Instantiate the bean.

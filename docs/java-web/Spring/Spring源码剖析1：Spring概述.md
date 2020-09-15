@@ -6,8 +6,7 @@
   * [为什么需要Spring及Spring的优点](#为什么需要spring及spring的优点)
   * [如何学好Spring](#如何学好spring)
 
-
-原文出处： [张开涛](http://sishuok.com/forum/blogPost/list/0/2508.html)
+>  原文出处： [张开涛](http://sishuok.com/forum/blogPost/list/0/2508.html)
 
 
 

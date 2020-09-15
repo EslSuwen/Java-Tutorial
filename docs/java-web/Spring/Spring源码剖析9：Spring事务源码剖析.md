@@ -8,28 +8,8 @@
   * [Transactional注解](#transactional注解)
   * [开启事务过程](#开启事务过程)
 
+>  转自：http://www.linkedkeeper.com/detail/blog.action?bid=1045
 
-转自：http://www.linkedkeeper.com/detail/blog.action?bid=1045
-
-本系列文章将整理到我在GitHub上的《Java面试指南》仓库，更多精彩内容请到我的仓库里查看
-> https://github.com/h2pl/Java-Tutorial
-
-喜欢的话麻烦点下Star哈
-
-文章将同步到我的个人博客：
-> www.how2playlife.com
-
-本文是微信公众号【Java技术江湖】的《Spring和SpringMVC源码分析》其中一篇，本文部分内容来源于网络，为了把本文主题讲得清晰透彻，也整合了很多我认为不错的技术博客内容，引用其中了一些比较好的博客文章，如有侵权，请联系作者。
-
-该系列博文会告诉你如何从spring基础入手，一步步地学习spring基础和springmvc的框架知识，并上手进行项目实战，spring框架是每一个Java工程师必须要学习和理解的知识点，进一步来说，你还需要掌握spring甚至是springmvc的源码以及实现原理，才能更完整地了解整个spring技术体系，形成自己的知识框架。
-
-后续还会有springboot和springcloud的技术专题，陆续为大家带来，敬请期待。
-
-为了更好地总结和检验你的学习成果，本系列文章也会提供部分知识点对应的面试题以及参考答案。
-
-如果对本系列文章有什么建议，或者是有什么疑问的话，也可以关注公众号【Java技术江湖】联系作者，欢迎你参与本系列博文的创作和修订。
-
-<!-- more -->
 ## 声明式事务使用
 
 Spring事务是我们日常工作中经常使用的一项技术，Spring提供了编程、注解、aop切面三种方式供我们使用Spring事务，其中编程式事务因为对代码入侵较大所以不被推荐使用，注解和aop切面的方式可以基于需求自行选择，我们以注解的方式为例来分析Spring事务的原理和源码实现。
